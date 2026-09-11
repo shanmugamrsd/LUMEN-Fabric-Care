@@ -1,0 +1,2274 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LUMEN Fabric Care & Couture Laundry | லும் மென் பிரீமியம் லாண்ட்ரி & டிரை கிளீனிங்</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans & Noto Sans Tamil -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- FontAwesome 6 Pro-style Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- AOS (Animate On Scroll) Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <!-- Leaflet CSS & JS for Interactive Map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '"Noto Sans Tamil"', 'sans-serif'],
+            tamil: ['"Noto Sans Tamil"', 'sans-serif'],
+          },
+          colors: {
+            navy: {
+              950: '#060a17',
+              900: '#0a1128',
+              800: '#0f172a',
+              700: '#1e293b',
+              600: '#334155',
+            },
+            royal: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              200: '#bfdbfe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+            },
+            gold: {
+              300: '#fde68a',
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+            },
+            emerald: {
+              500: '#10b981',
+              600: '#059669',
+            }
+          },
+          boxShadow: {
+            'luxury': '0 20px 40px -15px rgba(10, 17, 40, 0.08), 0 0 1px 1px rgba(226, 232, 240, 0.8)',
+            'float': '0 25px 50px -12px rgba(15, 23, 42, 0.22)',
+            'glow': '0 0 25px -5px rgba(37, 99, 235, 0.4)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    ::selection { background: #2563eb; color: #ffffff; }
+    ::-webkit-scrollbar { width: 7px; height: 7px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+    .glass-header {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .leaflet-container {
+      font-family: inherit;
+      z-index: 10 !important;
+    }
+    @keyframes float-badge {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    .floating-card {
+      animation: float-badge 3.8s ease-in-out infinite;
+    }
+    @keyframes pulse-ring {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.2); opacity: 0.65; }
+    }
+    .pulse-dot {
+      animation: pulse-ring 2s infinite ease-in-out;
+    }
+    .shimmer {
+      background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+      background-size: 200% 100%;
+      animation: shimmer 3s infinite;
+    }
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+  </style>
+</head>
+
+<body class="bg-[#f8fafc] text-slate-800 font-sans antialiased min-h-screen flex flex-col selection:bg-royal-600 selection:text-white pb-16 md:pb-0">
+
+  <!-- Top Priority Ribbon -->
+  <aside class="bg-navy-950 text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2.5">
+      <div class="flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-gold-400 pulse-dot"></span>
+        <p class="font-medium text-[11px] sm:text-xs">
+          <strong class="text-white">LUMEN Doorstep Valet:</strong> Free pickup & delivery on orders above <strong class="text-gold-400 font-bold">₹199</strong> across Tamil Nadu!
+        </p>
+      </div>
+      <div class="flex items-center gap-4 text-[11px] sm:text-xs">
+        <span class="hidden lg:inline text-slate-400"><i class="fa-solid fa-droplet text-sky-400 mr-1"></i> 100% Pure RO Soft Water • Zero Fabric Mixing</span>
+        <a href="tel:+919345989176" class="inline-flex items-center text-gold-400 hover:text-white transition-colors font-bold">
+          <i class="fa-solid fa-phone-volume mr-1.5"></i> Direct Call: +91 93459 89176
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Sticky Luxury Navbar -->
+  <header class="sticky top-0 z-40 glass-header border-b border-slate-200/80 shadow-sm transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-3.5 group">
+        <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-navy-950 via-royal-800 to-royal-600 flex items-center justify-center text-white shadow-lg shadow-royal-600/30 group-hover:scale-105 transition-transform duration-300">
+          <i class="fa-solid fa-wand-magic-sparkles text-gold-400 text-xl"></i>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-xl sm:text-2xl font-black tracking-tight text-navy-900">LUMEN</span>
+            <span class="bg-royal-50 text-royal-700 text-[10px] font-extrabold px-2.5 py-0.5 rounded-full border border-royal-200 uppercase tracking-wider">Couture Fabric Care</span>
+          </div>
+          <p class="text-[11px] font-bold text-slate-500 font-tamil -mt-0.5">லும் மென் பிரீமியம் லாண்ட்ரி & டிரை கிளீனிங்</p>
+        </div>
+      </a>
+
+      <!-- Desktop Links -->
+      <nav class="hidden lg:flex items-center gap-6 font-bold text-xs tracking-wider uppercase text-slate-600">
+        <a href="#rates" class="hover:text-royal-600 transition-colors">Rate Card (20 Items)</a>
+        <a href="#how-it-works" class="hover:text-royal-600 transition-colors">Process</a>
+        <a href="#booking" class="hover:text-royal-600 transition-colors">Schedule Valet</a>
+        <a href="#tracker" class="hover:text-royal-600 transition-colors">Track Order</a>
+        <a href="#subscriptions" class="hover:text-royal-600 transition-colors">Monthly Plans</a>
+        <button type="button" onclick="openMyOrdersModal()" class="flex items-center gap-1.5 text-royal-700 bg-royal-50 hover:bg-royal-100 border border-royal-200 px-3.5 py-2 rounded-xl font-bold transition-all text-xs">
+          <i class="fa-solid fa-clock-rotate-left"></i> My Orders
+        </button>
+      </nav>
+
+      <!-- Action Stack -->
+      <div class="flex items-center gap-2.5">
+        <a href="https://wa.me/919345989176?text=Hello%20LUMEN%20Laundry,%20I%20want%20to%20schedule%20a%20doorstep%20laundry%20pickup." target="_blank" rel="noopener" class="hidden sm:inline-flex items-center gap-2 px-3.5 py-2 text-xs font-bold text-emerald-900 bg-emerald-50 hover:bg-emerald-100 rounded-xl border border-emerald-300 transition-all">
+          <i class="fa-brands fa-whatsapp text-emerald-600 text-sm"></i>
+          <span>93459 89176</span>
+        </a>
+        <a href="#booking" class="inline-flex items-center gap-2 bg-navy-900 hover:bg-black text-white px-4 sm:px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm shadow-md hover:shadow-float transition-all active:scale-95">
+          <i class="fa-solid fa-calendar-check text-gold-400"></i>
+          <span>Book Pickup (முன்பதிவு)</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <section class="relative bg-gradient-to-b from-white via-royal-50/50 to-[#f8fafc] py-12 md:py-20 overflow-hidden border-b border-slate-200">
+    <!-- Subtle Background Glows -->
+    <div class="absolute top-10 left-1/4 w-96 h-96 bg-royal-200/30 rounded-full blur-3xl pointer-events-none -z-0"></div>
+    <div class="absolute bottom-10 right-10 w-96 h-96 bg-gold-300/20 rounded-full blur-3xl pointer-events-none -z-0"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+        
+        <!-- Left Hero Copy with AOS Animations -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left" data-aos="fade-up" data-aos-duration="900">
+          
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200 text-navy-900 text-xs font-bold shadow-sm">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 pulse-dot"></span>
+            <span>Tamil Nadu's Master Fabric Care, Veshti Starching & Couture Laundry</span>
+          </div>
+
+          <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-navy-900 tracking-tight leading-[1.16]">
+            Heritage Fabric Craftsmanship Meets German Steam Technology.
+            <span class="block text-xl sm:text-2xl md:text-3xl font-bold font-tamil text-royal-600 mt-2.5">
+              பட்டுப் புடவை, வேஷ்டி முதல் அன்றாட உடைகள் வரை — இல்லத்திற்கே வந்து சேகரித்து துவைத்து, ஸ்டீம் அயர்ன் செய்து தரும் நம்பகமான சேவை.
+            </span>
+          </h1>
+
+          <p class="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl leading-relaxed">
+            From traditional natural rice starching for crisp Veshtis to tension-free German vacuum steam pressing and delicate Kanchipuram silk preservation. We wash exclusively in separate loads using 100% pure RO soft water.
+          </p>
+
+          <!-- 4 Core Trust Badges with Hover Float -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-1" data-aos="fade-up" data-aos-delay="200">
+            <div class="bg-white p-3.5 rounded-2xl border border-slate-200/80 shadow-luxury hover:shadow-float transition-all group">
+              <i class="fa-solid fa-hand-holding-droplet text-royal-600 text-lg mb-1 group-hover:scale-110 transition-transform"></i>
+              <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Zero Clothes Mixing</p>
+              <p class="text-xs sm:text-sm font-black text-slate-900">Dedicated Drum Wash</p>
+            </div>
+            <div class="bg-white p-3.5 rounded-2xl border border-slate-200/80 shadow-luxury hover:shadow-float transition-all group">
+              <i class="fa-solid fa-water text-sky-600 text-lg mb-1 group-hover:scale-110 transition-transform"></i>
+              <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Demineralized</p>
+              <p class="text-xs sm:text-sm font-black text-slate-900">100% RO Soft Water</p>
+            </div>
+            <div class="bg-white p-3.5 rounded-2xl border border-slate-200/80 shadow-luxury hover:shadow-float transition-all group">
+              <i class="fa-solid fa-temperature-arrow-up text-gold-600 text-lg mb-1 group-hover:scale-110 transition-transform"></i>
+              <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">German Precision</p>
+              <p class="text-xs sm:text-sm font-black text-slate-900">Vacuum Steam Press</p>
+            </div>
+            <div class="bg-white p-3.5 rounded-2xl border border-slate-200/80 shadow-luxury hover:shadow-float transition-all group">
+              <i class="fa-solid fa-truck-fast text-emerald-600 text-lg mb-1 group-hover:scale-110 transition-transform"></i>
+              <p class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Free Over ₹199</p>
+              <p class="text-xs sm:text-sm font-black text-slate-900">24/48h Valet Pickup</p>
+            </div>
+          </div>
+
+          <!-- Hero Action CTAs -->
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 pt-2" data-aos="fade-up" data-aos-delay="300">
+            <a href="#booking" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-navy-900 hover:bg-black text-white px-7 py-3.5 rounded-2xl font-bold text-sm sm:text-base shadow-float hover:shadow-glow transition-all active:scale-95">
+              <i class="fa-solid fa-calendar-check text-gold-400"></i>
+              <span>Schedule Free Valet (முன்பதிவு)</span>
+            </a>
+            <a href="#rates" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-slate-700 px-6 py-3.5 rounded-2xl font-bold text-sm border border-slate-200 shadow-sm transition-all">
+              <i class="fa-solid fa-tags text-royal-600"></i>
+              <span>Explore 20-Item Rate Card</span>
+            </a>
+          </div>
+
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-1 text-xs text-slate-500 font-medium">
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-star text-gold-500"></i> 4.9★ Rated (6,200+ Bookings)</span>
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-shield-halved text-emerald-600"></i> Fabric Color & Zari Guarantee</span>
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-map-location-dot text-royal-600"></i> Doorstep Across All 38 TN Districts</span>
+          </div>
+
+        </div>
+
+        <!-- Right Quick Calculator Card with Floating Badge -->
+        <div class="lg:col-span-5" data-aos="zoom-in" data-aos-duration="1000">
+          <div class="bg-white rounded-3xl p-6 shadow-luxury border border-slate-200 relative">
+            <div class="flex items-center justify-between pb-4 border-b border-slate-100">
+              <div class="flex items-center gap-2.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-royal-600 pulse-dot"></span>
+                <h3 class="font-bold text-slate-900 text-sm sm:text-base">Instant Doorstep Bill Estimator</h3>
+              </div>
+              <span class="text-[11px] font-bold px-2.5 py-1 bg-royal-50 text-royal-800 rounded-full border border-royal-200">Doorstep Valet</span>
+            </div>
+
+            <!-- Quick Samples -->
+            <div class="space-y-3 my-4">
+              
+              <!-- Veshti -->
+              <div class="flex items-center justify-between p-3 rounded-2xl bg-slate-50 border border-slate-200/80">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-900 flex items-center justify-center text-base flex-shrink-0">
+                    <i class="fa-solid fa-scroll"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-xs font-bold text-slate-900 leading-tight">Veshti & Angavastram (வேஷ்டி & துண்டு)</h4>
+                    <p class="text-[11px] font-semibold text-royal-700">₹45 / set • Rice Starch & Press</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-1.5">
+                  <button type="button" onclick="adjustQuantity('veshti_angavastram', -1)" class="w-7 h-7 rounded-lg bg-white border border-slate-300 hover:bg-slate-100 text-slate-700 font-bold flex items-center justify-center text-xs">-</button>
+                  <span id="quick-val-veshti_angavastram" class="w-7 text-center font-bold text-xs text-slate-800">2</span>
+                  <button type="button" onclick="adjustQuantity('veshti_angavastram', 1)" class="w-7 h-7 rounded-lg bg-white border border-slate-300 hover:bg-slate-100 text-slate-700 font-bold flex items-center justify-center text-xs">+</button>
+                </div>
+              </div>
+
+              <!-- Formal Shirt -->
+              <div class="flex items-center justify-between p-3 rounded-2xl bg-slate-50 border border-slate-200/80">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-xl bg-sky-100 text-sky-900 flex items-center justify-center text-base flex-shrink-0">
+                    <i class="fa-solid fa-shirt"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-xs font-bold text-slate-900 leading-tight">Formal Cotton Shirt (ஆண்கள் சட்டை)</h4>
+                    <p class="text-[11px] font-semibold text-royal-700">₹25 / pc • RO Wash & Steam Iron</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-1.5">
+                  <button type="button" onclick="adjustQuantity('formal_shirt', -1)" class="w-7 h-7 rounded-lg bg-white border border-slate-300 hover:bg-slate-100 text-slate-700 font-bold flex items-center justify-center text-xs">-</button>
+                  <span id="quick-val-formal_shirt" class="w-7 text-center font-bold text-xs text-slate-800">3</span>
+                  <button type="button" onclick="adjustQuantity('formal_shirt', 1)" class="w-7 h-7 rounded-lg bg-white border border-slate-300 hover:bg-slate-100 text-slate-700 font-bold flex items-center justify-center text-xs">+</button>
+                </div>
+              </div>
+
+              <!-- Silk Saree -->
+              <div class="flex items-center justify-between p-3 rounded-2xl bg-slate-50 border border-slate-200/80">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-900 flex items-center justify-center text-base flex-shrink-0">
+                    <i class="fa-solid fa-gem"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-xs font-bold text-slate-900 leading-tight">Kanchipuram Silk Saree (பட்டுப் புடவை)</h4>
+                    <p class="text-[11px] font-semibold text-royal-700">₹150 / pc • Dry Clean & Zari Polish</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-1.5">
+                  <button type="button" onclick="adjustQuantity('kanchipuram_silk_saree', -1)" class="w-7 h-7 rounded-lg bg-white border border-slate-300 hover:bg-slate-100 text-slate-700 font-bold flex items-center justify-center text-xs">-</button>
+                  <span id="quick-val-kanchipuram_silk_saree" class="w-7 text-center font-bold text-xs text-slate-800">1</span>
+                  <button type="button" onclick="adjustQuantity('kanchipuram_silk_saree', 1)" class="w-7 h-7 rounded-lg bg-white border border-slate-300 hover:bg-slate-100 text-slate-700 font-bold flex items-center justify-center text-xs">+</button>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Dynamic ₹199 Threshold Gauge -->
+            <div class="bg-royal-50/90 p-4 rounded-2xl border border-royal-200/80 space-y-2.5">
+              <div class="flex justify-between items-center text-xs">
+                <span class="text-slate-600 font-bold">Estimated Subtotal (மதிப்பீடு):</span>
+                <span id="quick-est-total" class="text-navy-900 text-base font-black">₹315</span>
+              </div>
+              <div class="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden p-0.5">
+                <div id="quick-threshold-bar" class="bg-emerald-500 h-full rounded-full transition-all duration-300" style="width: 100%;"></div>
+              </div>
+              <div class="flex justify-between items-center text-[11px] pt-0.5">
+                <span class="text-slate-500 font-medium">Free Doorstep Valet:</span>
+                <span id="quick-status-tag" class="text-emerald-800 font-extrabold bg-emerald-100 px-2.5 py-0.5 rounded-md">Unlocked (₹199 Met)</span>
+              </div>
+            </div>
+
+            <button type="button" onclick="scrollToBookingSection()" class="w-full mt-4 bg-navy-900 hover:bg-black text-white font-bold py-3.5 rounded-xl text-xs sm:text-sm transition-all flex items-center justify-center gap-2 shadow-md hover:shadow-float">
+              <span>Proceed to Doorstep Schedule</span>
+              <i class="fa-solid fa-arrow-right text-xs text-gold-400"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="how-it-works" class="py-16 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12" data-aos="fade-up">
+        <span class="text-xs font-bold text-royal-700 tracking-widest uppercase bg-royal-50 px-3.5 py-1 rounded-full border border-royal-200">Standard & Reliability</span>
+        <h2 class="text-2xl sm:text-3xl font-black text-navy-900 mt-2">How LUMEN Cares for Your Wardrobe</h2>
+        <p class="text-xs sm:text-sm text-slate-500 mt-1">Four seamless steps from your doorstep back into your closet.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        
+        <div class="bg-[#f8fafc] p-6 rounded-3xl border border-slate-200/80 space-y-3 hover:shadow-luxury transition-all relative" data-aos="fade-up" data-aos-delay="100">
+          <span class="w-9 h-9 rounded-xl bg-navy-900 text-gold-400 font-black text-xs flex items-center justify-center">01</span>
+          <h3 class="font-bold text-base text-slate-900">Doorstep Valet Pickup</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Our uniformed valet arrives at your booked 2-hour slot with eco canvas laundry bags. Digital piece count verified at your doorstep.
+          </p>
+        </div>
+
+        <div class="bg-[#f8fafc] p-6 rounded-3xl border border-slate-200/80 space-y-3 hover:shadow-luxury transition-all relative" data-aos="fade-up" data-aos-delay="200">
+          <span class="w-9 h-9 rounded-xl bg-navy-900 text-gold-400 font-black text-xs flex items-center justify-center">02</span>
+          <h3 class="font-bold text-base text-slate-900">Dedicated RO Soft Wash</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Zero mixing with other customers. Segregated by fabric tone and sanitized in multi-stage RO soft water without salt build-up.
+          </p>
+        </div>
+
+        <div class="bg-[#f8fafc] p-6 rounded-3xl border border-slate-200/80 space-y-3 hover:shadow-luxury transition-all relative" data-aos="fade-up" data-aos-delay="300">
+          <span class="w-9 h-9 rounded-xl bg-navy-900 text-gold-400 font-black text-xs flex items-center justify-center">03</span>
+          <h3 class="font-bold text-base text-slate-900">Rice Starch & Steam Craft</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Pure natural rice starching for Veshtis & Cotton Sarees, pressed on German vacuum steam tables without shine or burn marks.
+          </p>
+        </div>
+
+        <div class="bg-[#f8fafc] p-6 rounded-3xl border border-slate-200/80 space-y-3 hover:shadow-luxury transition-all relative" data-aos="fade-up" data-aos-delay="400">
+          <span class="w-9 h-9 rounded-xl bg-navy-900 text-gold-400 font-black text-xs flex items-center justify-center">04</span>
+          <h3 class="font-bold text-base text-slate-900">Couture Packaging</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Returned on crisp hangers or sealed eco box-folds within 24–48 hours. Inspect and pay via Cash or UPI on delivery.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Complete 20-Item Master Wardrobe Rate Card -->
+  <section id="rates" class="py-16 bg-[#f8fafc] border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4" data-aos="fade-up">
+        <div>
+          <span class="text-xs font-bold text-royal-700 tracking-widest uppercase">Transparent Pricing • கட்டண விவரங்கள்</span>
+          <h2 class="text-2xl sm:text-3xl font-black text-navy-900 mt-1">LUMEN Master Wardrobe Rate Card (20 Items)</h2>
+          <p class="text-xs sm:text-sm text-slate-500 mt-1">Exhaustive Tamil Nadu apparel and home linens. Adjust quantity with (+ / -) to calculate your doorstep bill.</p>
+        </div>
+
+        <!-- Filter tabs -->
+        <div class="flex flex-wrap gap-2">
+          <button type="button" onclick="filterGarmentCards('all')" id="tab-all" class="menu-tab px-3.5 py-1.5 rounded-xl text-xs font-bold bg-navy-900 text-white shadow-sm transition-all">All 20 Items</button>
+          <button type="button" onclick="filterGarmentCards('traditional')" id="tab-traditional" class="menu-tab px-3.5 py-1.5 rounded-xl text-xs font-bold bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 transition-all">Traditional (வேஷ்டி & பட்டு)</button>
+          <button type="button" onclick="filterGarmentCards('men')" id="tab-men" class="menu-tab px-3.5 py-1.5 rounded-xl text-xs font-bold bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 transition-all">Men's Formals & Casuals</button>
+          <button type="button" onclick="filterGarmentCards('women')" id="tab-women" class="menu-tab px-3.5 py-1.5 rounded-xl text-xs font-bold bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 transition-all">Women's Sarees & Kurtis</button>
+          <button type="button" onclick="filterGarmentCards('home')" id="tab-home" class="menu-tab px-3.5 py-1.5 rounded-xl text-xs font-bold bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 transition-all">Linens, Blankets & Curtains</button>
+        </div>
+      </div>
+
+      <!-- Rate Card Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5" id="rate-cards-grid">
+        <!-- Dynamically Rendered via JS -->
+      </div>
+
+    </div>
+  </section>
+
+  <section id="booking" class="py-16 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-10" data-aos="fade-up">
+        <span class="text-xs font-bold text-royal-700 tracking-widest uppercase bg-royal-50 px-3.5 py-1 rounded-full border border-royal-200">Doorstep Booking Engine</span>
+        <h2 class="text-2xl sm:text-4xl font-black text-navy-900 mt-2">Select Your Garments & Schedule Valet</h2>
+        <p class="text-xs sm:text-sm text-slate-500 mt-1">Complimentary valet doorstep pickup and delivery across all 38 Tamil Nadu districts for orders of <strong>₹199 or more</strong>.</p>
+      </div>
+
+      <!-- Quick Filter Pills for the 20 Garments -->
+      <div class="flex flex-wrap items-center justify-center gap-2 mb-8" data-aos="fade-up" data-aos-delay="100">
+        <span class="text-xs font-bold text-slate-500 mr-1 flex items-center gap-1.5"><i class="fa-solid fa-filter text-royal-600"></i> Quick Filter:</span>
+        <button type="button" onclick="filterBookingGarments('all')" id="btn-filter-all" class="booking-filter-pill active px-3.5 py-1.5 rounded-xl text-xs font-bold bg-navy-900 text-white shadow-sm transition-all">All 20 Items</button>
+        <button type="button" onclick="filterBookingGarments('traditional')" id="btn-filter-traditional" class="booking-filter-pill px-3.5 py-1.5 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition-all">Traditional (வேஷ்டி & பட்டு)</button>
+        <button type="button" onclick="filterBookingGarments('men')" id="btn-filter-men" class="booking-filter-pill px-3.5 py-1.5 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition-all">Men's Formals & Casuals</button>
+        <button type="button" onclick="filterBookingGarments('women')" id="btn-filter-women" class="booking-filter-pill px-3.5 py-1.5 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition-all">Women's Sarees & Kurtis</button>
+        <button type="button" onclick="filterBookingGarments('home')" id="btn-filter-home" class="booking-filter-pill px-3.5 py-1.5 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition-all">Linens & Curtains</button>
+      </div>
+
+      <!-- Step 1: Full 20 Garments Grid (No Internal Scroll, Fully Expanded & Stylish) -->
+      <div class="mb-12" data-aos="fade-up" data-aos-delay="150">
+        <div class="flex items-center justify-between pb-3.5 mb-5 border-b border-slate-200">
+          <div class="flex items-center gap-2.5">
+            <span class="w-8 h-8 rounded-xl bg-navy-900 text-gold-400 flex items-center justify-center text-xs font-black shadow-sm">1</span>
+            <div>
+              <h3 class="font-bold text-base sm:text-lg text-slate-900 leading-tight">
+                Select Garments & Pieces (துணிகள் பட்டியல் - 20 Items)
+              </h3>
+              <p class="text-xs text-slate-500 font-medium">All 20 items open and individually selectable. Tap <b class="text-royal-600">+</b> to add pieces to your cart.</p>
+            </div>
+          </div>
+          <div class="hidden sm:flex items-center gap-2 bg-royal-50 border border-royal-200 text-royal-800 text-xs font-bold px-3 py-1.5 rounded-xl">
+            <i class="fa-solid fa-layer-group text-royal-600"></i>
+            <span>All 20 Pieces Visible</span>
+          </div>
+        </div>
+
+        <!-- Fully Open Responsive Grid: 1 col on mobile, 2 on sm, 3 on lg, 4 on xl -->
+        <div id="booking-stepper-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3.5">
+          <!-- Dynamically populated with small stylish thumbnails, bilingual labels & counters -->
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
+
+        <!-- Left 7 Cols: Starch, Packaging & Photos -->
+        <div class="lg:col-span-7 space-y-6" data-aos="fade-right">
+
+          <!-- 2. Starch, Packaging & Detergent Preferences -->
+          <div class="bg-white rounded-3xl p-5 sm:p-6 border border-slate-200 shadow-luxury space-y-4">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+              <h3 class="font-bold text-sm sm:text-base text-slate-900 flex items-center gap-2">
+                <span class="w-7 h-7 rounded-xl bg-navy-900 text-white flex items-center justify-center text-xs font-black">2</span>
+                <span>Wash, Starch & Packaging Customization</span>
+              </h3>
+              <span class="text-[11px] bg-amber-50 text-amber-900 px-2 py-0.5 rounded-md font-bold border border-amber-200">Customized</span>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-2">Starch Level (கஞ்சி அளவு) for Veshtis, Cotton Sarees & Linens:</label>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-xs">
+                <label class="flex items-center gap-2.5 p-3 rounded-2xl border border-slate-200 cursor-pointer hover:bg-slate-50 transition-colors">
+                  <input type="radio" name="starch-pref" value="No Starch (சாப்ட் பினிஷ்)" class="text-royal-600 focus:ring-royal-500" />
+                  <div>
+                    <span class="font-bold text-slate-800 block">No Starch</span>
+                    <span class="text-[10px] text-slate-400">Natural soft steam finish</span>
+                  </div>
+                </label>
+                <label class="flex items-center gap-2.5 p-3 rounded-2xl border border-royal-300 bg-royal-50/50 cursor-pointer hover:bg-royal-50 transition-colors">
+                  <input type="radio" name="starch-pref" value="Light Starch (மிதமான கஞ்சி)" checked class="text-royal-600 focus:ring-royal-500" />
+                  <div>
+                    <span class="font-bold text-navy-900 block">Light Starch</span>
+                    <span class="text-[10px] text-royal-700 font-semibold">மிதமான கஞ்சி (Office drape)</span>
+                  </div>
+                </label>
+                <label class="flex items-center gap-2.5 p-3 rounded-2xl border border-slate-200 cursor-pointer hover:bg-slate-50 transition-colors">
+                  <input type="radio" name="starch-pref" value="Crisp Traditional Starch (விறைப்பான கஞ்சி)" class="text-royal-600 focus:ring-royal-500" />
+                  <div>
+                    <span class="font-bold text-slate-800 block">Crisp Traditional</span>
+                    <span class="text-[10px] text-amber-700 font-semibold">விறைப்பான கஞ்சி (Veshti fold)</span>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <!-- Packaging Style & Turnaround Speed -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1.5">Packaging Presentation:</label>
+                <div class="space-y-1.5 text-xs">
+                  <label class="flex items-center gap-2 p-2.5 rounded-xl border border-slate-200 cursor-pointer hover:bg-slate-50">
+                    <input type="radio" name="pack-style" value="Luxury Hanger Packaging (ஹேங்கர் பேக்)" checked class="text-royal-600 focus:ring-royal-500" />
+                    <span class="font-semibold text-slate-800">Luxury Hanger Pack (Recommended)</span>
+                  </label>
+                  <label class="flex items-center gap-2 p-2.5 rounded-xl border border-slate-200 cursor-pointer hover:bg-slate-50">
+                    <input type="radio" name="pack-style" value="Eco Sealed Box-Fold (பாக்ஸ் மடிப்பு)" class="text-royal-600 focus:ring-royal-500" />
+                    <span class="font-semibold text-slate-800">Eco Sealed Box-Fold (Neat Travel)</span>
+                  </label>
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1.5">Turnaround Speed:</label>
+                <div class="space-y-1.5 text-xs">
+                  <label class="flex items-center gap-2 p-2.5 rounded-xl border border-slate-200 cursor-pointer hover:bg-slate-50">
+                    <input type="radio" name="turnaround-speed" value="Standard (48 Hrs) - Complimentary" checked class="text-royal-600 focus:ring-royal-500" />
+                    <span class="font-semibold text-slate-800">Standard (48 Hrs) • Free Valet</span>
+                  </label>
+                  <label class="flex items-center gap-2 p-2.5 rounded-xl border border-slate-200 cursor-pointer hover:bg-slate-50">
+                    <input type="radio" name="turnaround-speed" value="Express Next-Day (24 Hrs)" class="text-royal-600 focus:ring-royal-500" />
+                    <span class="font-semibold text-gold-600 font-bold">Express Next-Day (24 Hrs)</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Detergent & Stain Remarks -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+              <div>
+                <label for="detergent-aroma" class="block text-xs font-bold text-slate-700 mb-1">Aroma / Detergent Choice:</label>
+                <select id="detergent-aroma" class="w-full text-xs px-3 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-royal-500 bg-white">
+                  <option value="Lavender & Pure Cotton Blossom">Mild Lavender & Fresh Cotton Blossom</option>
+                  <option value="Hypoallergenic Fragrance-Free">Hypoallergenic (Fragrance-Free for Sensitive Skin)</option>
+                  <option value="Citrus Breeze Softener">Citrus Breeze Fabric Conditioner</option>
+                </select>
+              </div>
+              <div>
+                <label for="special-instructions" class="block text-xs font-bold text-slate-700 mb-1">Stain / Specific Care Note:</label>
+                <input type="text" id="special-instructions" placeholder="e.g. Coffee spot on collar, extra gentle on zari border" class="w-full text-xs px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-royal-500" />
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Photo Upload for Stains & Delicate Sarees -->
+          <div class="bg-white rounded-3xl p-5 sm:p-6 border border-slate-200 shadow-luxury">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-100 mb-3">
+              <h3 class="font-bold text-sm sm:text-base text-slate-900 flex items-center gap-2">
+                <span class="w-7 h-7 rounded-xl bg-navy-900 text-white flex items-center justify-center text-xs font-black">3</span>
+                <span>Garment Photos / Stain Marks (விருப்பத்தேர்வு)</span>
+              </h3>
+              <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded-md font-bold">Optional</span>
+            </div>
+
+            <div class="border-2 border-dashed border-slate-300 hover:border-royal-600 rounded-2xl p-6 text-center cursor-pointer bg-slate-50 hover:bg-royal-50/40 transition-colors" onclick="document.getElementById('garment-photos-input').click()">
+              <input type="file" id="garment-photos-input" accept="image/*" multiple class="hidden" onchange="handleGarmentPhotoUpload(event)" />
+              <div class="w-11 h-11 mx-auto rounded-xl bg-royal-100 text-royal-700 flex items-center justify-center text-lg mb-2 shadow-sm">
+                <i class="fa-solid fa-camera"></i>
+              </div>
+              <p class="text-xs sm:text-sm font-bold text-slate-800">Tap to upload garment photos or stain marks</p>
+              <p class="text-[11px] text-slate-400 mt-0.5">Attach delicate Kanchipuram zari or spots (Max 4 photos)</p>
+            </div>
+
+            <div id="photos-preview-box" class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-3 hidden"></div>
+          </div>
+
+        </div>
+
+        <!-- Right 5 Cols: Live Bill & Address Form -->
+        <div class="lg:col-span-5 space-y-6" data-aos="fade-left">
+
+          <!-- Live Summary Card -->
+          <div class="bg-gradient-to-br from-navy-950 via-navy-900 to-royal-900 text-white rounded-3xl p-6 shadow-luxury relative overflow-hidden">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-receipt text-gold-400"></i>
+                <h4 class="font-bold text-xs sm:text-sm">Bill & Valet Summary</h4>
+              </div>
+              <span id="meter-status-badge" class="text-[10px] sm:text-xs font-bold px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                Min. ₹199 Order
+              </span>
+            </div>
+
+            <div class="my-4">
+              <div class="flex items-baseline justify-between mb-1.5">
+                <span class="text-xs text-slate-300">Total Estimated Bill:</span>
+                <div class="flex items-baseline gap-1">
+                  <span id="cart-total-val" class="text-3xl font-black text-white">₹315</span>
+                  <span class="text-xs font-semibold text-slate-400">/ ₹199 Min</span>
+                </div>
+              </div>
+
+              <!-- Animated Progress Bar -->
+              <div class="w-full bg-slate-800 h-3 rounded-full overflow-hidden p-0.5 border border-slate-700">
+                <div id="cart-progress-fill" class="bg-emerald-400 h-full rounded-full transition-all duration-300" style="width: 100%;"></div>
+              </div>
+
+              <div class="flex justify-between items-center text-[11px] text-slate-300 mt-2">
+                <span>Selected Items: <strong id="cart-total-pieces" class="text-white">6</strong> pieces</span>
+                <span id="cart-criteria-text" class="text-emerald-300 font-bold">Free Valet Doorstep Unlocked!</span>
+              </div>
+            </div>
+
+            <div class="bg-slate-900/80 rounded-2xl p-3.5 border border-slate-800 flex justify-between items-center">
+              <div>
+                <p class="text-xs text-slate-200 font-bold">Doorstep Pickup & Delivery</p>
+                <p class="text-[10px] text-slate-400">Directly collected from your gate</p>
+              </div>
+              <div class="text-right">
+                <span class="text-sm sm:text-base font-black text-emerald-400">FREE</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Structured Doorstep Address Form -->
+          <form id="laundry-valet-form" onsubmit="handleOrderSubmission(event)" class="bg-white rounded-3xl p-5 sm:p-6 border border-slate-200 shadow-luxury space-y-4">
+            <h3 class="font-bold text-sm sm:text-base text-slate-900 flex items-center gap-2 pb-2 border-b border-slate-100">
+              <span class="w-7 h-7 rounded-xl bg-navy-900 text-white flex items-center justify-center text-xs font-black">4</span>
+              <span>Customer Details & Doorstep Address</span>
+            </h3>
+
+            <!-- Name -->
+            <div>
+              <label for="cust-name" class="block text-xs font-bold text-slate-700 mb-1">Customer Name (வாடிக்கையாளர் பெயர்) *</label>
+              <div class="relative">
+                <span class="absolute left-3.5 top-2.5 text-slate-400 text-xs"><i class="fa-solid fa-user"></i></span>
+                <input type="text" id="cust-name" required placeholder="e.g. Senthil Nathan / செந்தில் நாதன்" class="w-full text-xs sm:text-sm pl-9 pr-3 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-royal-500" />
+              </div>
+            </div>
+
+            <!-- WhatsApp & Alternate Mobile -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              <div>
+                <label for="cust-whatsapp" class="block text-xs font-bold text-slate-700 mb-1">WhatsApp Mobile *</label>
+                <div class="relative">
+                  <span class="absolute left-3.5 top-2.5 text-slate-400 text-xs"><i class="fa-brands fa-whatsapp text-emerald-600"></i></span>
+                  <input type="tel" id="cust-whatsapp" required pattern="[0-9]{10}" placeholder="10-digit number" class="w-full text-xs sm:text-sm pl-9 pr-3 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-royal-500" />
+                </div>
+              </div>
+              <div>
+                <label for="cust-altphone" class="block text-xs font-bold text-slate-700 mb-1">Alternate Phone (Optional)</label>
+                <input type="tel" id="cust-altphone" placeholder="Calling number" class="w-full text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-royal-500" />
+              </div>
+            </div>
+
+            <!-- Address Fields with Auto GPS Trigger -->
+            <div class="pt-1">
+              <div class="flex items-center justify-between mb-1.5">
+                <label class="text-xs font-bold text-slate-700">Doorstep Pickup Address (முகவரி) *</label>
+                <button type="button" id="btn-auto-gps" onclick="fetchLiveGPSLocation()" class="text-[11px] text-royal-700 font-bold hover:bg-navy-900 hover:text-white bg-royal-50 px-2.5 py-1 rounded-lg border border-royal-200 transition-all flex items-center gap-1 shadow-sm active:scale-95">
+                  <i class="fa-solid fa-location-crosshairs text-royal-600"></i>
+                  <span>Auto Detect Live Location</span>
+                </button>
+              </div>
+
+              <div class="space-y-2">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  <input type="text" id="cust-door" required placeholder="Door / Flat No *" class="w-full text-xs sm:text-sm px-3.5 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-royal-500" />
+                  <input type="text" id="cust-street" required placeholder="Street / Road Name *" class="w-full text-xs sm:text-sm px-3.5 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-royal-500" />
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  <input type="text" id="cust-locality" placeholder="Locality / Area / Nagar" class="w-full text-xs sm:text-sm px-3.5 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-royal-500" />
+                  <input type="text" id="cust-city" required placeholder="Town / City / Village *" class="w-full text-xs sm:text-sm px-3.5 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-royal-500" />
+                </div>
+
+                <!-- Exhaustive 38 Tamil Nadu Districts -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  <div>
+                    <select id="cust-district" required class="w-full text-xs sm:text-sm px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-royal-500 bg-white font-semibold text-slate-800">
+                      <option value="" disabled selected>Select Tamil Nadu District *</option>
+                      <option value="Ariyalur">Ariyalur (அரியலூர்)</option>
+                      <option value="Chengalpattu">Chengalpattu (செங்கல்பட்டு)</option>
+                      <option value="Chennai">Chennai (சென்னை)</option>
+                      <option value="Coimbatore">Coimbatore (கோயம்புத்தூர்)</option>
+                      <option value="Cuddalore">Cuddalore (கடலூர்)</option>
+                      <option value="Dharmapuri">Dharmapuri (தருமபுரி)</option>
+                      <option value="Dindigul">Dindigul (திண்டுக்கல்)</option>
+                      <option value="Erode">Erode (ஈரோடு)</option>
+                      <option value="Kallakurichi">Kallakurichi (கள்ளக்குறிச்சி)</option>
+                      <option value="Kancheepuram">Kancheepuram (காஞ்சிபுரம்)</option>
+                      <option value="Kanniyakumari">Kanniyakumari (கன்னியாகுமரி)</option>
+                      <option value="Karur">Karur (கரூர்)</option>
+                      <option value="Krishnagiri">Krishnagiri (கிருஷ்ணகிரி)</option>
+                      <option value="Madurai">Madurai (மதுரை)</option>
+                      <option value="Mayiladuthurai">Mayiladuthurai (மயிலாடுதுறை)</option>
+                      <option value="Nagapattinam">Nagapattinam (நாகப்பட்டினம்)</option>
+                      <option value="Namakkal">Namakkal (நாமக்கல்)</option>
+                      <option value="Nilgiris">Nilgiris (நீலகிரி)</option>
+                      <option value="Perambalur">Perambalur (பெரம்பலூர்)</option>
+                      <option value="Pudukkottai">Pudukkottai (புதுக்கோட்டை)</option>
+                      <option value="Ramanathapuram">Ramanathapuram (இராமநாதபுரம்)</option>
+                      <option value="Ranipet">Ranipet (ராணிப்பேட்டை)</option>
+                      <option value="Salem">Salem (சேலம்)</option>
+                      <option value="Sivaganga">Sivaganga (சிவகங்கை)</option>
+                      <option value="Tenkasi">Tenkasi (தென்காசி)</option>
+                      <option value="Thanjavur">Thanjavur (தஞ்சாவூர்)</option>
+                      <option value="Theni">Theni (தேனி)</option>
+                      <option value="Thoothukudi">Thoothukudi (தூத்துக்குடி)</option>
+                      <option value="Tiruchirappalli">Tiruchirappalli (திருச்சி)</option>
+                      <option value="Tirunelveli">Tirunelveli (திருநெல்வேலி)</option>
+                      <option value="Tirupathur">Tirupathur (திருப்பத்தூர்)</option>
+                      <option value="Tiruppur">Tiruppur (திருப்பூர்)</option>
+                      <option value="Tiruvallur">Tiruvallur (திருவள்ளூர்)</option>
+                      <option value="Tiruvannamalai">Tiruvannamalai (திருவண்ணாமலை)</option>
+                      <option value="Tiruvarur">Tiruvarur (திருவாரூர்)</option>
+                      <option value="Vellore">Vellore (வேலூர்)</option>
+                      <option value="Viluppuram">Viluppuram (விழுப்புரம்)</option>
+                      <option value="Virudhunagar">Virudhunagar (விருதுநகர்)</option>
+                    </select>
+                  </div>
+                  <div>
+                    <input type="text" id="cust-pincode" required pattern="[0-9]{6}" placeholder="Pincode (6 digits) *" class="w-full text-xs sm:text-sm px-3.5 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-royal-500" />
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  <input type="text" id="cust-state" required value="Tamil Nadu (தமிழ்நாடு)" readonly class="w-full text-xs sm:text-sm px-3.5 py-2 rounded-xl border border-slate-200 bg-slate-50 text-slate-600 focus:outline-none" />
+                  <input type="text" id="cust-landmark" placeholder="Landmark (Near Temple/Bus Stop)" class="w-full text-xs sm:text-sm px-3.5 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-royal-500" />
+                </div>
+              </div>
+
+              <!-- Interactive Leaflet Map Container -->
+              <div id="gps-status-panel" class="mt-2.5 p-3.5 rounded-2xl bg-royal-50/80 border border-royal-200 hidden">
+                <div class="flex items-center justify-between mb-1.5">
+                  <span class="text-xs font-bold text-navy-900 flex items-center gap-1.5" id="gps-header-label">
+                    <i class="fa-solid fa-satellite-dish text-royal-600 animate-pulse"></i>
+                    <span>GPS Coordinates Detected</span>
+                  </span>
+                  <a id="gmaps-direct-link" href="#" target="_blank" class="text-[11px] font-bold text-royal-700 hover:underline flex items-center gap-1">
+                    <span>Google Maps Link</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                  </a>
+                </div>
+                <p id="gps-coords-caption" class="text-[11px] text-slate-600 mb-2"></p>
+                <div id="map-frame-wrapper" class="w-full h-44 rounded-xl overflow-hidden border border-slate-200 shadow-inner hidden">
+                  <div id="leaflet-doorstep-map" class="w-full h-full"></div>
+                </div>
+                <p class="text-[10px] text-slate-500 mt-1 italic">
+                  *Drag the marker pin to adjust your precise gate position.
+                </p>
+              </div>
+            </div>
+
+            <!-- 2-Hour Time Slots (6:00 AM to 9:00 PM) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+              <div>
+                <label for="pickup-date" class="block text-xs font-bold text-slate-700 mb-1">Pickup Date *</label>
+                <input type="date" id="pickup-date" required class="w-full text-xs sm:text-sm px-3.5 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-royal-500" />
+              </div>
+              <div>
+                <label for="pickup-timeslot" class="block text-xs font-bold text-slate-700 mb-1">Pickup Time (2-Hour Slot) *</label>
+                <select id="pickup-timeslot" required class="w-full text-xs sm:text-sm px-3.5 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-royal-500 bg-white font-medium text-slate-800">
+                  <option value="06:00 AM - 08:00 AM (Early Morning)">06:00 AM - 08:00 AM (Early Morning)</option>
+                  <option value="08:00 AM - 10:00 AM (Morning)" selected>08:00 AM - 10:00 AM (Morning)</option>
+                  <option value="10:00 AM - 12:00 PM (Late Morning)">10:00 AM - 12:00 PM (Late Morning)</option>
+                  <option value="12:00 PM - 02:00 PM (Afternoon)">12:00 PM - 02:00 PM (Afternoon)</option>
+                  <option value="02:00 PM - 04:00 PM (Mid Afternoon)">02:00 PM - 04:00 PM (Mid Afternoon)</option>
+                  <option value="04:00 PM - 06:00 PM (Evening)">04:00 PM - 06:00 PM (Evening)</option>
+                  <option value="06:00 PM - 08:00 PM (Late Evening)">06:00 PM - 08:00 PM (Late Evening)</option>
+                  <option value="08:00 PM - 09:00 PM (Night)">08:00 PM - 09:00 PM (Night)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Payment Method -->
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Payment Method (பணம் செலுத்தும் முறை) *</label>
+              <div class="grid grid-cols-3 gap-2 text-xs">
+                <label class="flex items-center gap-1.5 p-2 rounded-xl border border-slate-200 cursor-pointer hover:bg-slate-50">
+                  <input type="radio" name="payment-method" value="Cash on Delivery (ரொக்கம்)" checked class="text-royal-600 focus:ring-royal-500" />
+                  <span class="font-bold text-slate-800">Cash on Delivery</span>
+                </label>
+                <label class="flex items-center gap-1.5 p-2 rounded-xl border border-slate-200 cursor-pointer hover:bg-slate-50">
+                  <input type="radio" name="payment-method" value="GPay / PhonePe / UPI" class="text-royal-600 focus:ring-royal-500" />
+                  <span class="font-bold text-slate-800">GPay / UPI</span>
+                </label>
+                <label class="flex items-center gap-1.5 p-2 rounded-xl border border-slate-200 cursor-pointer hover:bg-slate-50">
+                  <input type="radio" name="payment-method" value="After Delivery Inspection" class="text-royal-600 focus:ring-royal-500" />
+                  <span class="font-bold text-slate-800">Pay After Delivery</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Submit Button (Direct to WhatsApp +91 9345989176) -->
+            <div class="pt-2">
+              <button type="submit" id="btn-submit-order" class="w-full py-4 rounded-2xl bg-navy-900 hover:bg-black disabled:bg-slate-300 disabled:cursor-not-allowed text-white font-extrabold text-sm sm:text-base shadow-luxury hover:shadow-glow transition-all flex items-center justify-center gap-2.5">
+                <i class="fa-brands fa-whatsapp text-emerald-400 text-lg"></i>
+                <span id="submit-caption">Confirm Order on WhatsApp (+91 93459 89176)</span>
+              </button>
+              <div class="flex items-center justify-center gap-1.5 text-[11px] text-center text-navy-900 mt-2 font-bold">
+                <i class="fa-solid fa-shield-halved text-emerald-600"></i>
+                <span>Direct Dispatch to Owner WhatsApp (+91 93459 89176)</span>
+              </div>
+            </div>
+          </form>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Docket Tracker Lookup -->
+  <section id="tracker" class="py-16 bg-[#f8fafc] border-b border-slate-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8" data-aos="fade-up">
+      <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-luxury">
+        <div class="text-center max-w-lg mx-auto mb-6">
+          <span class="text-xs font-bold text-royal-700 tracking-widest uppercase bg-royal-50 px-3.5 py-1 rounded-full border border-royal-200">Order Verification</span>
+          <h2 class="text-2xl font-black text-navy-900 mt-2">Track Your Doorstep Laundry Docket</h2>
+          <p class="text-xs text-slate-500 mt-1">Enter your Docket ID (e.g. LMN-TN-894210) or 10-digit registered phone number.</p>
+        </div>
+
+        <div class="flex gap-2 max-w-md mx-auto mb-6">
+          <input type="text" id="track-input-id" placeholder="Enter Docket ID or Phone" class="flex-1 text-xs sm:text-sm px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-royal-500" />
+          <button type="button" onclick="executeDocketLookup()" class="px-5 py-3 rounded-xl bg-navy-900 hover:bg-black text-white font-bold text-xs sm:text-sm transition-colors flex items-center gap-1.5">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <span>Track</span>
+          </button>
+        </div>
+
+        <div id="tracker-result-card" class="bg-slate-50 rounded-2xl p-4 sm:p-6 border border-slate-200 hidden">
+          <div class="flex flex-wrap items-center justify-between gap-2 pb-4 border-b border-slate-200">
+            <div>
+              <span class="text-[10px] text-slate-400 uppercase font-bold tracking-wider">Docket</span>
+              <p id="track-result-docket" class="text-base font-black text-navy-900"></p>
+            </div>
+            <div class="text-right">
+              <span class="text-[10px] text-slate-400 uppercase font-bold tracking-wider">Current Status</span>
+              <p class="text-xs font-black text-emerald-700 bg-emerald-100 px-2.5 py-0.5 rounded-full inline-block">In German Vacuum Steam Pressing</p>
+            </div>
+          </div>
+
+          <!-- 4 Step Tracker Progress -->
+          <div class="grid grid-cols-4 gap-2 pt-5 text-center">
+            <div class="space-y-1">
+              <div class="w-8 h-8 mx-auto rounded-full bg-emerald-600 text-white flex items-center justify-center text-xs"><i class="fa-solid fa-check"></i></div>
+              <p class="text-[10px] font-bold text-slate-800">Confirmed</p>
+            </div>
+            <div class="space-y-1">
+              <div class="w-8 h-8 mx-auto rounded-full bg-emerald-600 text-white flex items-center justify-center text-xs"><i class="fa-solid fa-check"></i></div>
+              <p class="text-[10px] font-bold text-slate-800">Valet Picked</p>
+            </div>
+            <div class="space-y-1">
+              <div class="w-8 h-8 mx-auto rounded-full bg-royal-600 text-white flex items-center justify-center text-xs pulse-dot"><i class="fa-solid fa-shirt"></i></div>
+              <p class="text-[10px] font-bold text-royal-700">Steam Craft</p>
+            </div>
+            <div class="space-y-1">
+              <div class="w-8 h-8 mx-auto rounded-full bg-slate-200 text-slate-500 flex items-center justify-center text-xs"><i class="fa-solid fa-truck"></i></div>
+              <p class="text-[10px] font-bold text-slate-400">Out for Delivery</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison Matrix: LUMEN vs Local Dhobi vs Standard Washer -->
+  <section class="py-16 bg-white border-b border-slate-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8" data-aos="fade-up">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="text-xs font-bold text-royal-700 tracking-widest uppercase">The Quality Difference</span>
+        <h2 class="text-2xl sm:text-3xl font-black text-navy-900 mt-1">Why Choose LUMEN Couture Laundry?</h2>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs sm:text-sm border-collapse bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
+          <thead>
+            <tr class="bg-navy-900 text-white border-b border-slate-800 text-xs uppercase tracking-wider">
+              <th class="p-4">Fabric Care Standard</th>
+              <th class="p-4 bg-royal-800 font-black text-white">LUMEN Couture</th>
+              <th class="p-4 text-slate-300">Local Dhobi Iron</th>
+              <th class="p-4 text-slate-300">Standard Washer</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100 text-slate-700">
+            <tr>
+              <td class="p-4 font-semibold text-slate-900">Separate Hygienic Drum Wash</td>
+              <td class="p-4 font-bold text-emerald-600 bg-royal-50/40"><i class="fa-solid fa-circle-check mr-1.5"></i> 100% Dedicated Wash</td>
+              <td class="p-4 text-red-500"><i class="fa-solid fa-circle-xmark mr-1"></i> Mixed in ponds/drums</td>
+              <td class="p-4 text-amber-600">Mixed with others</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-semibold text-slate-900">Water Quality Standard</td>
+              <td class="p-4 font-bold text-emerald-600 bg-royal-50/40"><i class="fa-solid fa-circle-check mr-1.5"></i> 100% Multi-Stage RO Soft</td>
+              <td class="p-4 text-red-500"><i class="fa-solid fa-circle-xmark mr-1"></i> Hard borewell water</td>
+              <td class="p-4 text-amber-600">Unfiltered tap water</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-semibold text-slate-900">Pressing Technique</td>
+              <td class="p-4 font-bold text-emerald-600 bg-royal-50/40"><i class="fa-solid fa-circle-check mr-1.5"></i> German Vacuum Steam Tables</td>
+              <td class="p-4 text-red-500"><i class="fa-solid fa-circle-xmark mr-1"></i> Heavy coal iron (burn risk)</td>
+              <td class="p-4 text-slate-500">Regular domestic iron</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-semibold text-slate-900">Traditional Rice Starching</td>
+              <td class="p-4 font-bold text-emerald-600 bg-royal-50/40"><i class="fa-solid fa-circle-check mr-1.5"></i> Pure Rice Starch Formulated</td>
+              <td class="p-4 text-slate-500">Chemical maida paste</td>
+              <td class="p-4 text-red-500"><i class="fa-solid fa-circle-xmark mr-1"></i> Not provided</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-semibold text-slate-900">Doorstep Pickup & Delivery</td>
+              <td class="p-4 font-bold text-emerald-600 bg-royal-50/40"><i class="fa-solid fa-circle-check mr-1.5"></i> 2-Hour Valet (Free ₹199+)</td>
+              <td class="p-4 text-slate-500">Manual visit required</td>
+              <td class="p-4 text-amber-600">High delivery charges</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Subscriptions / Value Passes -->
+  <section id="subscriptions" class="py-16 bg-[#f8fafc] border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12" data-aos="fade-up">
+        <span class="text-xs font-bold text-royal-700 tracking-widest uppercase bg-royal-50 px-3.5 py-1 rounded-full border border-royal-200">Value Passes</span>
+        <h2 class="text-2xl sm:text-3xl font-black text-navy-900 mt-2">Monthly Wardrobe Saver Plans</h2>
+        <p class="text-xs sm:text-sm text-slate-500 mt-1">Convenient weekly scheduled valet pickups with priority processing discounts.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Plan 1 -->
+        <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-luxury hover:shadow-float transition-all space-y-4 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Weekly Essential</span>
+            <h3 class="text-xl font-bold text-slate-900 mt-1">Bachelor / Solo Pass</h3>
+            <p class="text-3xl font-black text-navy-900 mt-2">₹799 <span class="text-xs font-normal text-slate-500">/ Month</span></p>
+            <ul class="space-y-2 text-xs text-slate-600 mt-4 border-t border-slate-100 pt-4">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> 4 Doorstep Pickups (1 per week)</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> Up to 35 garments washed & ironed</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> Shirts & Trousers Steam Pressed</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> Free Doorstep Valet included</li>
+            </ul>
+          </div>
+          <a href="#booking" class="w-full py-3 rounded-xl bg-slate-100 hover:bg-navy-900 hover:text-white text-slate-800 font-bold text-xs text-center transition-all">Select Solo Pass</a>
+        </div>
+
+        <!-- Plan 2 (Popular) -->
+        <div class="bg-navy-900 text-white rounded-3xl p-6 border border-slate-800 shadow-float relative space-y-4 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
+          <span class="absolute -top-3 right-6 bg-gold-400 text-navy-900 text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full">Most Popular</span>
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Couples & Executives</span>
+            <h3 class="text-xl font-bold text-white mt-1">Executive Duo Pass</h3>
+            <p class="text-3xl font-black text-white mt-2">₹1,499 <span class="text-xs font-normal text-slate-400">/ Month</span></p>
+            <ul class="space-y-2 text-xs text-slate-300 mt-4 border-t border-slate-800 pt-4">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold-400"></i> 4 Pickups + 1 Express Upgrade</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold-400"></i> Up to 70 garments processed</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold-400"></i> 2 Traditional Silk Sarees / Veshti sets</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold-400"></i> Luxury Hanger Pack included</li>
+            </ul>
+          </div>
+          <a href="#booking" class="w-full py-3 rounded-xl bg-gold-400 hover:bg-gold-500 text-navy-900 font-black text-xs text-center transition-all">Select Executive Duo</a>
+        </div>
+
+        <!-- Plan 3 -->
+        <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-luxury hover:shadow-float transition-all space-y-4 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="300">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Full Family Care</span>
+            <h3 class="text-xl font-bold text-slate-900 mt-1">Grand Family Pass</h3>
+            <p class="text-3xl font-black text-navy-900 mt-2">₹2,699 <span class="text-xs font-normal text-slate-500">/ Month</span></p>
+            <ul class="space-y-2 text-xs text-slate-600 mt-4 border-t border-slate-100 pt-4">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> 8 Scheduled Pickups (2 per week)</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> Up to 140 pieces (Apparel + Bedsheets)</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> Rice Starch & Dry Clean included</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> Dedicated Valet Priority Concierge</li>
+            </ul>
+          </div>
+          <a href="#booking" class="w-full py-3 rounded-xl bg-slate-100 hover:bg-navy-900 hover:text-white text-slate-800 font-bold text-xs text-center transition-all">Select Grand Family</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Client Reviews -->
+  <section class="py-16 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-10" data-aos="fade-up">
+        <span class="text-xs font-bold text-royal-700 tracking-widest uppercase">Verified Testimonials</span>
+        <h2 class="text-2xl sm:text-3xl font-black text-navy-900 mt-1">Loved by Tamil Nadu Homes</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="p-5 rounded-3xl bg-[#f8fafc] border border-slate-200 space-y-3" data-aos="fade-up" data-aos-delay="100">
+          <div class="flex items-center gap-1 text-gold-500 text-xs">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="text-xs text-slate-600 leading-relaxed italic">
+            "Their natural rice starch for traditional Veshti and Angavastram is unmatched. Exactly like our heritage wedding drape without chemical hardness. Doorstep delivery is on time!"
+          </p>
+          <div class="pt-2 border-t border-slate-200/80">
+            <h4 class="font-bold text-xs text-slate-900">Dr. M. Somasundaram</h4>
+            <p class="text-[11px] text-slate-500">Coimbatore • Monthly Regular</p>
+          </div>
+        </div>
+
+        <div class="p-5 rounded-3xl bg-[#f8fafc] border border-slate-200 space-y-3" data-aos="fade-up" data-aos-delay="200">
+          <div class="flex items-center gap-1 text-gold-500 text-xs">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="text-xs text-slate-600 leading-relaxed italic">
+            "I gave 4 heavy Kanchipuram silk sarees for wedding dry clean. The gold zari sheen was preserved completely and wrapped in breathable covers. Outstanding professional service!"
+          </p>
+          <div class="pt-2 border-t border-slate-200/80">
+            <h4 class="font-bold text-xs text-slate-900">Priya Soundararajan</h4>
+            <p class="text-[11px] text-slate-500">Chennai • Couture Dry Clean</p>
+          </div>
+        </div>
+
+        <div class="p-5 rounded-3xl bg-[#f8fafc] border border-slate-200 space-y-3" data-aos="fade-up" data-aos-delay="300">
+          <div class="flex items-center gap-1 text-gold-500 text-xs">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="text-xs text-slate-600 leading-relaxed italic">
+            "The 2-hour slot booking with live GPS pickup makes it effortless. Office shirts come pressed with vacuum steam tables — crisp collars and zero shine marks."
+          </p>
+          <div class="pt-2 border-t border-slate-200/80">
+            <h4 class="font-bold text-xs text-slate-900">K. Rajesh Kumar</h4>
+            <p class="text-[11px] text-slate-500">Madurai • Executive Duo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Accordion -->
+  <section id="faq" class="py-16 bg-[#f8fafc] border-b border-slate-200">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8" data-aos="fade-up">
+      <div class="text-center mb-10">
+        <span class="text-xs font-bold text-royal-700 tracking-widest uppercase">Frequently Asked Questions</span>
+        <h2 class="text-2xl sm:text-3xl font-black text-navy-900 mt-1">Everything You Need to Know</h2>
+        <p class="text-xs sm:text-sm text-slate-500 mt-1">Details regarding starching, minimum orders, and doorstep logistics.</p>
+      </div>
+
+      <div class="space-y-3">
+        
+        <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+          <button type="button" onclick="toggleFaqAccordion('faq-item-1')" class="w-full p-4 sm:p-5 text-left flex justify-between items-center font-bold text-slate-800 text-xs sm:text-sm hover:text-royal-600">
+            <span>What is the minimum order for free doorstep pickup and delivery?</span>
+            <i id="faq-icon-1" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+          </button>
+          <div id="faq-item-1" class="px-5 pb-5 text-xs text-slate-600 hidden leading-relaxed border-t border-slate-100 pt-3">
+            Our complimentary valet doorstep pickup & delivery is activated on any order of <strong>₹199 or more</strong>. You can combine traditional veshtis, shirts, sarees, or bedding to meet this threshold.
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+          <button type="button" onclick="toggleFaqAccordion('faq-item-2')" class="w-full p-4 sm:p-5 text-left flex justify-between items-center font-bold text-slate-800 text-xs sm:text-sm hover:text-royal-600">
+            <span>Are clothes washed together with garments from other households?</span>
+            <i id="faq-icon-2" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+          </button>
+          <div id="faq-item-2" class="px-5 pb-5 text-xs text-slate-600 hidden leading-relaxed border-t border-slate-100 pt-3">
+            Never. Each customer order is segregated, tagged with an individual barcode docket, and washed in a dedicated drum using filtered RO soft water to ensure hygiene.
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+          <button type="button" onclick="toggleFaqAccordion('faq-item-3')" class="w-full p-4 sm:p-5 text-left flex justify-between items-center font-bold text-slate-800 text-xs sm:text-sm hover:text-royal-600">
+            <span>How does the traditional rice starch process work?</span>
+            <i id="faq-icon-3" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+          </button>
+          <div id="faq-item-3" class="px-5 pb-5 text-xs text-slate-600 hidden leading-relaxed border-t border-slate-100 pt-3">
+            We use purified organic rice starch (அரிசிக் கஞ்சி) formulated to your chosen preference: No Starch (soft), Light Starch (office drape), or Crisp Traditional Starch (stiff veshti fold). Pressed on German micro-steam vacuum tables.
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+          <button type="button" onclick="toggleFaqAccordion('faq-item-4')" class="w-full p-4 sm:p-5 text-left flex justify-between items-center font-bold text-slate-800 text-xs sm:text-sm hover:text-royal-600">
+            <span>How and when do I make payment?</span>
+            <i id="faq-icon-4" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+          </button>
+          <div id="faq-item-4" class="px-5 pb-5 text-xs text-slate-600 hidden leading-relaxed border-t border-slate-100 pt-3">
+            Payment is due upon doorstep delivery after you inspect your garments. You can pay our delivery valet via Cash, GPay, PhonePe, or any UPI app.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Luxury Footer -->
+  <footer class="mt-auto bg-navy-950 text-slate-400 text-xs pt-14 pb-8 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-slate-800">
+        
+        <div class="space-y-3.5 md:col-span-2">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-royal-700 flex items-center justify-center text-gold-400 text-xl">
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+            </div>
+            <div>
+              <span class="text-xl font-bold text-white tracking-tight">LUMEN Fabric Care</span>
+              <p class="text-[11px] text-slate-400 font-tamil">லும் மென் பிரீமியம் லாண்ட்ரி & டிரை கிளீனிங்</p>
+            </div>
+          </div>
+          <p class="text-slate-400 max-w-md leading-relaxed text-xs">
+            Tamil Nadu's dedicated doorstep laundry and couture dry clean studio. 100% RO softened water wash, traditional rice starching, and German vacuum steam pressing.
+          </p>
+          <div class="flex items-center gap-2 pt-1">
+            <span class="px-2.5 py-1 bg-slate-800 rounded-lg text-gold-400 border border-slate-700 font-bold text-[11px]">Min. ₹199 Order</span>
+            <span class="px-2.5 py-1 bg-slate-800 rounded-lg text-emerald-400 border border-slate-700 font-bold text-[11px]">Free Valet Doorstep</span>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-white uppercase text-xs tracking-wider mb-3">Quick Navigation</h4>
+          <ul class="space-y-2">
+            <li><a href="#rates" class="hover:text-white transition-colors">20-Item Rate Card</a></li>
+            <li><a href="#how-it-works" class="hover:text-white transition-colors">How It Works</a></li>
+            <li><a href="#tracker" class="hover:text-white transition-colors">Live Order Tracker</a></li>
+            <li><a href="#subscriptions" class="hover:text-white transition-colors">Monthly Saver Passes</a></li>
+            <li><a href="javascript:void(0)" onclick="openMyOrdersModal()" class="hover:text-white transition-colors">Order History</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-white uppercase text-xs tracking-wider mb-3">Concierge & Helpline</h4>
+          <p class="text-slate-400 mb-1.5">Hours: 6:00 AM – 9:00 PM (All 7 Days)</p>
+          <p class="font-bold text-white text-sm flex items-center gap-2 mb-1.5">
+            <i class="fa-solid fa-phone text-gold-400"></i>
+            <a href="tel:+919345989176" class="hover:text-gold-300 transition-colors">+91 93459 89176</a>
+          </p>
+          <p class="text-slate-400 flex items-center gap-2 mb-2">
+            <i class="fa-brands fa-whatsapp text-emerald-400 text-base"></i>
+            <a href="https://wa.me/919345989176" target="_blank" class="hover:text-gold-300 transition-colors">+91 93459 89176</a>
+          </p>
+          <p class="text-slate-400 flex items-center gap-1.5">
+            <i class="fa-solid fa-location-dot text-slate-500"></i> Tamil Nadu, India
+          </p>
+        </div>
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-slate-500 text-[11px]">
+        <p>© 2026 LUMEN Fabric Care & Couture Laundry. All rights reserved.</p>
+        <p class="flex items-center gap-1">
+          Crafted with 100% RO Water & Rice Starch Care <i class="fa-solid fa-sparkles text-gold-400"></i>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Call & WhatsApp Action Stack -->
+  <div class="fixed bottom-6 right-6 z-40 flex flex-col gap-3">
+    <a href="tel:+919345989176" class="bg-navy-950 hover:bg-black text-white w-12 h-12 rounded-full flex items-center justify-center text-lg shadow-luxury hover:scale-110 transition-transform" title="Call Concierge (+91 9345989176)">
+      <i class="fa-solid fa-phone text-gold-400"></i>
+    </a>
+    <a href="https://wa.me/919345989176?text=Hello%20LUMEN%20Laundry,%20I%20want%20to%20book%20a%20doorstep%20pickup." target="_blank" rel="noopener" class="bg-emerald-600 hover:bg-emerald-500 text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-luxury hover:scale-110 transition-transform" title="WhatsApp Concierge (+91 9345989176)">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+  </div>
+
+  <!-- Booking Confirmation & WhatsApp Dispatch Modal -->
+  <div id="booking-receipt-modal" class="fixed inset-0 z-50 bg-navy-950/80 backdrop-blur-sm hidden flex items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-white w-full max-w-lg rounded-3xl shadow-2xl border border-slate-200 overflow-hidden transform transition-all my-8">
+      
+      <div class="bg-gradient-to-r from-navy-950 to-royal-800 text-white p-6 text-center relative">
+        <button type="button" onclick="closeGenericModal('booking-receipt-modal')" class="absolute top-4 right-4 text-white/80 hover:text-white text-base w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="w-14 h-14 bg-white text-navy-900 rounded-full flex items-center justify-center text-2xl mx-auto mb-2.5 shadow-lg">
+          <i class="fa-solid fa-paper-plane text-emerald-600"></i>
+        </div>
+        <h3 class="text-xl font-black">Dispatching Order to WhatsApp</h3>
+        <p class="text-xs text-slate-300 mt-0.5">Direct routing to LUMEN Concierge at +91 93459 89176</p>
+      </div>
+
+      <div class="p-6 space-y-4">
+        <div class="bg-emerald-50 border border-emerald-200 p-3.5 rounded-2xl flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-emerald-600 text-white flex items-center justify-center text-lg flex-shrink-0">
+            <i class="fa-brands fa-whatsapp"></i>
+          </div>
+          <div class="text-xs text-emerald-950 leading-snug">
+            <p class="font-bold">Opening WhatsApp conversation...</p>
+            <p class="text-[11px] text-emerald-700">If WhatsApp does not launch automatically, tap the button below.</p>
+          </div>
+        </div>
+
+        <div class="flex justify-between items-center bg-slate-50 p-3.5 rounded-2xl border border-slate-200">
+          <div>
+            <p class="text-[10px] text-slate-400 uppercase font-bold tracking-wider">Docket ID</p>
+            <p id="modal-docket-id" class="text-base font-extrabold text-slate-900">LMN-TN-000000</p>
+          </div>
+          <div class="text-right">
+            <p class="text-[10px] text-slate-400 uppercase font-bold tracking-wider">Estimated Amount</p>
+            <p id="modal-docket-amount" class="text-lg font-black text-royal-700">₹0</p>
+          </div>
+        </div>
+
+        <div class="space-y-1.5 text-xs text-slate-600">
+          <div class="flex justify-between">
+            <span class="text-slate-400">Customer Name:</span>
+            <span id="modal-docket-name" class="font-bold text-slate-800"></span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-slate-400">WhatsApp Mobile:</span>
+            <span id="modal-docket-phone" class="font-bold text-slate-800"></span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-slate-400">Pickup Window:</span>
+            <span id="modal-docket-slot" class="font-bold text-slate-800"></span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-slate-400">Starch Level:</span>
+            <span id="modal-docket-starch" class="font-bold text-amber-700"></span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-slate-400">Packaging Style:</span>
+            <span id="modal-docket-pack" class="font-bold text-slate-800"></span>
+          </div>
+          <div class="pt-2 border-t border-slate-100">
+            <span class="text-slate-400 block mb-0.5">Pickup Address:</span>
+            <span id="modal-docket-address" class="font-medium text-slate-800 leading-relaxed block"></span>
+          </div>
+        </div>
+
+        <!-- Garment Breakdown -->
+        <div class="bg-slate-50 rounded-2xl p-3 border border-slate-200 text-xs">
+          <p class="font-bold text-slate-700 mb-1.5">Selected Pieces:</p>
+          <div id="modal-docket-items" class="space-y-1 max-h-32 overflow-y-auto pr-1"></div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="space-y-2 pt-1">
+          <a id="btn-relaunch-wa" href="#" target="_blank" class="w-full py-3.5 px-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-2xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/30 transition-all active:scale-95">
+            <i class="fa-brands fa-whatsapp text-lg"></i>
+            <span>Send Order via WhatsApp (+91 93459 89176)</span>
+          </a>
+          <div class="flex gap-2">
+            <button type="button" onclick="window.print()" class="w-1/2 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition-colors flex items-center justify-center gap-1.5">
+              <i class="fa-solid fa-print"></i> Print Docket
+            </button>
+            <button type="button" onclick="closeGenericModal('booking-receipt-modal')" class="w-1/2 py-2.5 rounded-xl border border-slate-300 hover:bg-slate-50 text-slate-700 font-semibold text-xs transition-colors">
+              Close (மூடுக)
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Past Orders Modal -->
+  <div id="my-orders-history-modal" class="fixed inset-0 z-50 bg-navy-950/70 backdrop-blur-sm hidden flex items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-white w-full max-w-xl rounded-3xl shadow-2xl border border-slate-200 overflow-hidden transform transition-all my-8">
+      <div class="bg-navy-950 text-white p-5 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-clock-rotate-left text-gold-400"></i>
+          <h3 class="font-bold text-sm sm:text-base">My Order History (முந்தைய முன்பதிவுகள்)</h3>
+        </div>
+        <button type="button" onclick="closeGenericModal('my-orders-history-modal')" class="text-slate-400 hover:text-white text-base">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="p-6 max-h-[65vh] overflow-y-auto">
+        <div id="past-orders-list-box" class="space-y-3"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification System -->
+  <div id="toast-wrapper" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+  <script>
+    // 1. Comprehensive Master Wardrobe Dataset (Exhaustive 20 Items with small high-res thumbnails)
+    const LUMEN_CATALOGUE = [
+      // Traditional Tamil Nadu Wear
+      {
+        id: 'veshti_angavastram',
+        nameEn: 'Veshti & Angavastram (Single / Double)',
+        nameTa: 'பாரம்பரிய வேஷ்டி & துண்டு',
+        category: 'traditional',
+        unit: 'set',
+        price: 45,
+        img: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=400&auto=format&fit=crop&q=80',
+        desc: 'Traditional pure rice starching (கஞ்சி இடுதல்) with precision German steam pressing.'
+      },
+      {
+        id: 'silk_veshti_zari',
+        nameEn: 'Silk Veshti & Zari Angavastram',
+        nameTa: 'பட்டு வேஷ்டி & ஜரிகை துண்டு',
+        category: 'traditional',
+        unit: 'set',
+        price: 85,
+        img: 'https://images.unsplash.com/photo-1609357605129-26f69add5d6e?w=400&auto=format&fit=crop&q=80',
+        desc: 'Delicate hydrocarbon dry clean safeguarding metallic zari threads with roll polish.'
+      },
+      {
+        id: 'kanchipuram_silk_saree',
+        nameEn: 'Kanchipuram Silk Saree (Pure Zari)',
+        nameTa: 'காஞ்சிபுரம் பட்டுப் புடவை',
+        category: 'women',
+        unit: 'pc',
+        price: 150,
+        img: 'https://images.unsplash.com/photo-1610030469668-932d59663d3c?w=400&auto=format&fit=crop&q=80',
+        desc: 'Couture dry cleaning, gold zari preservation, and breathable cover packing.'
+      },
+      {
+        id: 'cotton_saree_blouse',
+        nameEn: 'Daily Cotton Saree & Blouse',
+        nameTa: 'காட்டன் புடவை & பிளவுஸ்',
+        category: 'women',
+        unit: 'set',
+        price: 65,
+        img: 'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?w=400&auto=format&fit=crop&q=80',
+        desc: 'Choice of natural rice starch with sharp pleat alignment.'
+      },
+      {
+        id: 'designer_georgette_saree',
+        nameEn: 'Designer Georgette / Chiffon Saree',
+        nameTa: 'ஜார்ஜெட் / சிபான் டிசைனர் புடவை',
+        category: 'women',
+        unit: 'pc',
+        price: 90,
+        img: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=400&auto=format&fit=crop&q=80',
+        desc: 'Gentle RO softening rinse with zero-stretch low-heat steam ironing.'
+      },
+      {
+        id: 'pattu_pavadai_dhavani',
+        nameEn: 'Pattu Pavadai & Dhavani (Half-Saree Set)',
+        nameTa: 'பட்டுப் பாவாடை & தாவணி செட்',
+        category: 'traditional',
+        unit: 'set',
+        price: 110,
+        img: 'https://images.unsplash.com/photo-1596704017254-9b121068fb31?w=400&auto=format&fit=crop&q=80',
+        desc: '3-piece traditional half-saree dry clean with zari luster polish.'
+      },
+
+      // Men's Apparel
+      {
+        id: 'formal_shirt',
+        nameEn: 'Men Formal Cotton / Linen Shirt',
+        nameTa: 'ஆண்கள் சட்டை (Formal / Linen)',
+        category: 'men',
+        unit: 'pc',
+        price: 25,
+        img: 'https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=400&auto=format&fit=crop&q=80',
+        desc: '100% RO soft-water wash with micro-steam collar and cuff crisp shaping.'
+      },
+      {
+        id: 'tshirt_polo',
+        nameEn: 'Men T-Shirt, Polo & Casual Wear',
+        nameTa: 'டி-சர்ட், போலோ & கேஷுவல்',
+        category: 'men',
+        unit: 'pc',
+        price: 20,
+        img: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=400&auto=format&fit=crop&q=80',
+        desc: 'Color-lock enzyme wash and wrinkle-free steam press.'
+      },
+      {
+        id: 'formal_trousers',
+        nameEn: 'Men Formal Trousers & Chinos',
+        nameTa: 'ஆண்கள் பார்மல் பேண்ட் & சினோஸ்',
+        category: 'men',
+        unit: 'pc',
+        price: 30,
+        img: 'https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=400&auto=format&fit=crop&q=80',
+        desc: 'Knife-edge crease alignment on German vacuum press tables.'
+      },
+      {
+        id: 'denim_jeans',
+        nameEn: 'Denim Jeans & Heavy Cotton Bottoms',
+        nameTa: 'ஜீன்ஸ் பேண்ட் (Denim Jeans)',
+        category: 'men',
+        unit: 'pc',
+        price: 35,
+        img: 'https://images.unsplash.com/photo-1542272604-780c96856592?w=400&auto=format&fit=crop&q=80',
+        desc: 'Deep fabric cleanse with color-protect rinse and high-pressure steam press.'
+      },
+      {
+        id: 'lungi_kaili',
+        nameEn: 'Lungi & Kaili (லுங்கி & கைலி)',
+        nameTa: 'லுங்கி & கைலி',
+        category: 'men',
+        unit: 'pc',
+        price: 20,
+        img: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?w=400&auto=format&fit=crop&q=80',
+        desc: 'Sanitizing RO wash with optional light starch and square box fold.'
+      },
+      {
+        id: 'kurta_pyjama_set',
+        nameEn: 'Men Kurta & Pyjama Set',
+        nameTa: 'குர்தா & பைஜாமா செட்',
+        category: 'men',
+        unit: 'set',
+        price: 55,
+        img: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=400&auto=format&fit=crop&q=80',
+        desc: 'Ethnic festive wash, crisp embroidery care, and steam contour press.'
+      },
+      {
+        id: 'blazer_two_piece_suit',
+        nameEn: 'Men Blazer & 2-Piece Suit',
+        nameTa: 'சூட் & பிளேசர் டிரை கிளீன்',
+        category: 'men',
+        unit: 'set',
+        price: 160,
+        img: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=400&auto=format&fit=crop&q=80',
+        desc: 'Contour mannequin steaming with padded luxury hanger.'
+      },
+
+      // Women's & Youth Apparel
+      {
+        id: 'salwar_kameez_set',
+        nameEn: 'Salwar Kameez 3-Piece Set (Chudidhar)',
+        nameTa: 'சுடிதார் செட் (3-Piece Salwar)',
+        category: 'women',
+        unit: 'set',
+        price: 50,
+        img: 'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?w=400&auto=format&fit=crop&q=80',
+        desc: 'Top, bottom, and dupatta sanitized, treated, and steam pressed.'
+      },
+      {
+        id: 'women_kurtis_tops',
+        nameEn: 'Women Kurtis, Tunics & Tops',
+        nameTa: 'மகளிர் குர்தி & டாப்ஸ்',
+        category: 'women',
+        unit: 'pc',
+        price: 30,
+        img: 'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=400&auto=format&fit=crop&q=80',
+        desc: 'Gentle dye-safe wash with crease-free steam finish.'
+      },
+      {
+        id: 'women_nighties_gowns',
+        nameEn: 'Women Nighties & Maxi Gowns',
+        nameTa: 'நைட்டி & மேக்ஸி கவுன்',
+        category: 'women',
+        unit: 'pc',
+        price: 25,
+        img: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400&auto=format&fit=crop&q=80',
+        desc: 'Ultra-soft antibacterial wash with natural fabric conditioner.'
+      },
+      {
+        id: 'school_uniform_set',
+        nameEn: 'School Uniform Set (Shirt + Pant/Skirt + Tie)',
+        nameTa: 'பள்ளி சீருடை செட் (Uniform)',
+        category: 'traditional',
+        unit: 'set',
+        price: 45,
+        img: 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=400&auto=format&fit=crop&q=80',
+        desc: 'Stain treatment for ink and mud with crisp crease steam ironing.'
+      },
+
+      // Linens & Household
+      {
+        id: 'heavy_double_blanket',
+        nameEn: 'Heavy Double Bed Blanket / Comforter',
+        nameTa: 'கம்பளி & ரசாய் (Heavy Blanket)',
+        category: 'home',
+        unit: 'pc',
+        price: 110,
+        img: 'https://images.unsplash.com/photo-1584992236310-6edddc08acff?w=400&auto=format&fit=crop&q=80',
+        desc: 'High-capacity drum thermal dust-mite sanitization with sealed pack.'
+      },
+      {
+        id: 'bedsheet_pillow_covers',
+        nameEn: 'Single / Double Bedsheet with Pillow Covers',
+        nameTa: 'பெட்ஷீட் & தலையணை உறை',
+        category: 'home',
+        unit: 'set',
+        price: 60,
+        img: 'https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=400&auto=format&fit=crop&q=80',
+        desc: 'Anti-allergen rinse, flatbed iron roller press, and hotel crisp fold.'
+      },
+      {
+        id: 'window_door_curtains',
+        nameEn: 'Window & Door Curtains (Long)',
+        nameTa: 'ஜன்னல் & கதவு திரைகள் (Curtains)',
+        category: 'home',
+        unit: 'pc',
+        price: 70,
+        img: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?w=400&auto=format&fit=crop&q=80',
+        desc: 'Dust-extraction wash with eyelet protection and vertical steam drape.'
+      },
+      {
+        id: 'bath_towels_thundu',
+        nameEn: 'Bath Towels & Traditional Thundu',
+        nameTa: 'குளியல் டவல் & துண்டு',
+        category: 'home',
+        unit: 'pc',
+        price: 20,
+        img: 'https://images.unsplash.com/photo-1616627547584-bf28cee262db?w=400&auto=format&fit=crop&q=80',
+        desc: 'Terry-loop fluff drying and germ-free hygiene wash.'
+      }
+    ];
+
+    // State Tracking
+    let garmentQuantities = {
+      veshti_angavastram: 2,
+      formal_shirt: 3,
+      kanchipuram_silk_saree: 1
+    };
+
+    let activeBookingCategory = 'all';
+    let uploadedGarmentPhotos = [];
+    let detectedCoordinates = null;
+    let leafletMapInstance = null;
+    let leafletDraggableMarker = null;
+    let leafletAccuracyCircle = null;
+
+    // Initialization
+    function initLumenApplication() {
+      // Initialize AOS
+      if (typeof AOS !== 'undefined') {
+        AOS.init({
+          duration: 800,
+          once: true,
+          offset: 80
+        });
+      }
+
+      renderRateCardGrid('all');
+      renderBookingFormSteppers('all');
+
+      // Set default pickup date to tomorrow
+      const tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      const dateString = tomorrow.toISOString().split('T')[0];
+      const pDateInput = document.getElementById('pickup-date');
+      if (pDateInput) {
+        pDateInput.value = dateString;
+        pDateInput.min = dateString;
+      }
+
+      recalculateCartTotal();
+    }
+
+    // Render Rate Card Grid (20 Items)
+    function renderRateCardGrid(category) {
+      const container = document.getElementById('rate-cards-grid');
+      const items = category === 'all' 
+        ? LUMEN_CATALOGUE 
+        : LUMEN_CATALOGUE.filter(it => it.category === category);
+
+      container.innerHTML = items.map(item => `
+        <div class="bg-white rounded-3xl border border-slate-200 overflow-hidden hover:border-royal-500 shadow-luxury hover:shadow-float transition-all flex flex-col justify-between group" data-aos="fade-up">
+          <div class="relative h-44 overflow-hidden bg-slate-100">
+            <img src="${item.img}" alt="${item.nameEn}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-navy-950/75 via-transparent to-transparent"></div>
+            <span class="absolute bottom-3 left-3 bg-navy-950/80 backdrop-blur-sm text-gold-400 text-xs font-bold px-2.5 py-0.5 rounded-md border border-slate-800">
+              ₹${item.price} / ${item.unit}
+            </span>
+          </div>
+
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-bold text-slate-900 text-sm leading-snug">${item.nameEn}</h3>
+              <p class="text-[11px] text-royal-700 font-bold font-tamil mt-0.5">${item.nameTa}</p>
+              <p class="text-xs text-slate-500 mt-2 leading-relaxed">${item.desc}</p>
+            </div>
+
+            <div class="pt-3 mt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="text-xs font-bold text-slate-700">Quantity:</span>
+              <div class="flex items-center gap-1.5">
+                <button type="button" onclick="adjustQuantity('${item.id}', -1)" class="w-7 h-7 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold flex items-center justify-center text-xs transition-colors">-</button>
+                <input type="number" min="0" value="${garmentQuantities[item.id] || 0}" id="card-qty-${item.id}" onchange="setDirectQuantity('${item.id}', this.value)" class="w-12 text-center text-xs font-bold py-1 border border-slate-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-royal-500" />
+                <button type="button" onclick="adjustQuantity('${item.id}', 1)" class="w-7 h-7 rounded-lg bg-royal-100 hover:bg-royal-200 text-royal-900 font-bold flex items-center justify-center text-xs transition-colors">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Filter Garment Cards in Rate Card Section
+    function filterGarmentCards(cat) {
+      document.querySelectorAll('.menu-tab').forEach(b => {
+        b.classList.remove('bg-navy-900', 'text-white');
+        b.classList.add('bg-white', 'text-slate-700');
+      });
+      const activeBtn = document.getElementById(`tab-${cat}`);
+      if (activeBtn) {
+        activeBtn.classList.remove('bg-white', 'text-slate-700');
+        activeBtn.classList.add('bg-navy-900', 'text-white');
+      }
+      renderRateCardGrid(cat);
+    }
+
+    // Filter Booking Steppers
+    function filterBookingGarments(cat) {
+      activeBookingCategory = cat;
+      document.querySelectorAll('.booking-filter-pill').forEach(b => {
+        b.classList.remove('bg-navy-900', 'text-white', 'active');
+        b.classList.add('bg-slate-100', 'text-slate-700');
+      });
+      const activeBtn = document.getElementById(`btn-filter-${cat}`);
+      if (activeBtn) {
+        activeBtn.classList.remove('bg-slate-100', 'text-slate-700');
+        activeBtn.classList.add('bg-navy-900', 'text-white', 'active');
+      }
+      renderBookingFormSteppers(cat);
+    }
+
+    // Render Booking Form Steppers (ALL 20 ITEMS - FULL GRID, NO SCROLLBAR, WITH THUMBNAIL IMAGES)
+    function renderBookingFormSteppers(filterCategory = 'all') {
+      const container = document.getElementById('booking-stepper-list');
+      const items = filterCategory === 'all' 
+        ? LUMEN_CATALOGUE 
+        : LUMEN_CATALOGUE.filter(it => it.category === filterCategory);
+
+      container.innerHTML = items.map(item => {
+        const qty = garmentQuantities[item.id] || 0;
+        const isSelected = qty > 0;
+        return `
+          <div id="booking-item-card-${item.id}" class="relative bg-white rounded-2xl p-3.5 border transition-all duration-200 flex flex-col justify-between group shadow-sm hover:shadow-md ${isSelected ? 'border-royal-500 bg-royal-50/20 ring-1 ring-royal-400' : 'border-slate-200/90 hover:border-slate-300'}">
+            
+            <!-- Top Content with Small Stylish Image -->
+            <div class="flex items-start gap-3">
+              <div class="relative w-14 h-14 rounded-xl overflow-hidden flex-shrink-0 border border-slate-200/80 bg-slate-100 shadow-sm">
+                <img src="${item.img}" alt="${item.nameEn}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" loading="lazy" />
+                <span class="absolute top-0.5 right-0.5 text-[9px] font-black px-1.5 py-0.5 rounded-full bg-navy-950/80 text-gold-400 uppercase tracking-tight">
+                  ₹${item.price}
+                </span>
+              </div>
+
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center justify-between gap-1">
+                  <span class="text-[10px] uppercase font-extrabold tracking-wider px-2 py-0.5 rounded-full ${isSelected ? 'bg-royal-100 text-royal-800' : 'bg-slate-100 text-slate-500'}">
+                    ${item.unit === 'set' ? 'Set' : 'Piece'}
+                  </span>
+                  <span id="card-subtotal-${item.id}" class="text-[11px] font-black ${isSelected ? 'text-royal-700' : 'text-slate-400'}">
+                    ${isSelected ? `₹${qty * item.price}` : `₹${item.price}/${item.unit}`}
+                  </span>
+                </div>
+                
+                <h4 class="text-xs font-bold text-slate-900 leading-tight mt-1 truncate" title="${item.nameEn}">
+                  ${item.nameEn}
+                </h4>
+                <p class="text-[10.5px] font-semibold text-royal-700 font-tamil truncate -mt-0.5">
+                  ${item.nameTa}
+                </p>
+              </div>
+            </div>
+
+            <!-- Stepper Controller -->
+            <div class="pt-2.5 mt-2 border-t border-slate-100 flex items-center justify-between">
+              <span class="text-[11px] font-bold text-slate-500">Pieces:</span>
+              <div class="flex items-center gap-1.5">
+                <button type="button" onclick="adjustQuantity('${item.id}', -1)" class="w-7 h-7 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold flex items-center justify-center text-xs transition-colors active:scale-95">-</button>
+                <input type="number" min="0" value="${qty}" id="stepper-qty-${item.id}" onchange="setDirectQuantity('${item.id}', this.value)" class="w-10 text-center text-xs font-bold py-1 border border-slate-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-royal-500 bg-white" />
+                <button type="button" onclick="adjustQuantity('${item.id}', 1)" class="w-7 h-7 rounded-lg ${isSelected ? 'bg-royal-600 text-white hover:bg-royal-700' : 'bg-royal-100 hover:bg-royal-200 text-royal-900'} font-bold flex items-center justify-center text-xs transition-colors active:scale-95">+</button>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Adjust Quantity
+    function adjustQuantity(id, delta) {
+      let current = garmentQuantities[id] || 0;
+      current = Math.max(0, current + delta);
+      garmentQuantities[id] = current;
+      syncInputValues(id, current);
+      recalculateCartTotal();
+    }
+
+    function setDirectQuantity(id, val) {
+      let num = parseInt(val, 10);
+      if (isNaN(num) || num < 0) num = 0;
+      garmentQuantities[id] = num;
+      syncInputValues(id, num);
+      recalculateCartTotal();
+    }
+
+    function syncInputValues(id, val) {
+      const stepInput = document.getElementById(`stepper-qty-${id}`);
+      if (stepInput) stepInput.value = val;
+      const cardInput = document.getElementById(`card-qty-${id}`);
+      if (cardInput) cardInput.value = val;
+      const quickVal = document.getElementById(`quick-val-${id}`);
+      if (quickVal) quickVal.innerText = val;
+
+      // Update card visual state
+      const bookingCard = document.getElementById(`booking-item-card-${id}`);
+      const itemDef = LUMEN_CATALOGUE.find(x => x.id === id);
+      const subtotalEl = document.getElementById(`card-subtotal-${id}`);
+
+      if (bookingCard && itemDef) {
+        if (val > 0) {
+          bookingCard.classList.add('border-royal-500', 'bg-royal-50/20', 'ring-1', 'ring-royal-400');
+          bookingCard.classList.remove('border-slate-200/90');
+          if (subtotalEl) {
+            subtotalEl.className = "text-[11px] font-black text-royal-700";
+            subtotalEl.innerText = `₹${val * itemDef.price}`;
+          }
+        } else {
+          bookingCard.classList.remove('border-royal-500', 'bg-royal-50/20', 'ring-1', 'ring-royal-400');
+          bookingCard.classList.add('border-slate-200/90');
+          if (subtotalEl) {
+            subtotalEl.className = "text-[11px] font-black text-slate-400";
+            subtotalEl.innerText = `₹${itemDef.price}/${itemDef.unit}`;
+          }
+        }
+      }
+    }
+
+    function scrollToBookingSection() {
+      document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+      triggerToastNotification("Selected items saved! Complete your doorstep address below.");
+    }
+
+    // Recalculate Cart Total & Validate ₹199 Minimum
+    function recalculateCartTotal() {
+      let totalAmount = 0;
+      let totalCount = 0;
+
+      LUMEN_CATALOGUE.forEach(item => {
+        const qty = garmentQuantities[item.id] || 0;
+        totalCount += qty;
+        totalAmount += (qty * item.price);
+      });
+
+      const MINIMUM_ORDER = 199;
+      const isQualified = totalAmount >= MINIMUM_ORDER;
+      const percentage = Math.min(100, Math.round((totalAmount / MINIMUM_ORDER) * 100));
+
+      const cartTotalVal = document.getElementById('cart-total-val');
+      if (cartTotalVal) cartTotalVal.innerText = `₹${totalAmount.toLocaleString('en-IN')}`;
+
+      const quickTotal = document.getElementById('quick-est-total');
+      if (quickTotal) quickTotal.innerText = `₹${totalAmount.toLocaleString('en-IN')}`;
+
+      const cartPieces = document.getElementById('cart-total-pieces');
+      if (cartPieces) cartPieces.innerText = totalCount;
+
+      const progressFill = document.getElementById('cart-progress-fill');
+      const quickBar = document.getElementById('quick-threshold-bar');
+      const meterBadge = document.getElementById('meter-status-badge');
+      const criteriaText = document.getElementById('cart-criteria-text');
+      const quickTag = document.getElementById('quick-status-tag');
+      const submitButton = document.getElementById('btn-submit-order');
+      const submitCaption = document.getElementById('submit-caption');
+
+      if (progressFill) progressFill.style.width = `${percentage}%`;
+      if (quickBar) quickBar.style.width = `${percentage}%`;
+
+      if (isQualified && totalCount > 0) {
+        if (progressFill) progressFill.className = "bg-emerald-400 h-full rounded-full transition-all duration-300";
+        if (meterBadge) {
+          meterBadge.className = "text-[10px] sm:text-xs font-bold px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30";
+          meterBadge.innerHTML = `<i class="fa-solid fa-check mr-1"></i> Min. ₹199 Met`;
+        }
+        if (criteriaText) {
+          criteriaText.className = "text-emerald-300 font-bold";
+          criteriaText.innerText = "Free Valet Doorstep Unlocked!";
+        }
+        if (quickTag) {
+          quickTag.className = "text-emerald-800 font-extrabold bg-emerald-100 px-2.5 py-0.5 rounded-md";
+          quickTag.innerText = "Unlocked (₹199 Met)";
+        }
+        if (submitButton) submitButton.disabled = false;
+        if (submitCaption) submitCaption.innerText = "Confirm Order on WhatsApp (+91 93459 89176)";
+      } else {
+        const remaining = Math.max(0, MINIMUM_ORDER - totalAmount);
+        if (progressFill) progressFill.className = "bg-amber-400 h-full rounded-full transition-all duration-300";
+        if (meterBadge) {
+          meterBadge.className = "text-[10px] sm:text-xs font-bold px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30";
+          meterBadge.innerText = `Add ₹${remaining} more (Min. ₹199)`;
+        }
+        if (criteriaText) {
+          criteriaText.className = "text-amber-300 font-bold";
+          criteriaText.innerText = `Minimum order ₹199 for free doorstep valet`;
+        }
+        if (quickTag) {
+          quickTag.className = "text-amber-800 font-extrabold bg-amber-100 px-2.5 py-0.5 rounded-md";
+          quickTag.innerText = `Add ₹${remaining} more`;
+        }
+        if (submitButton) submitButton.disabled = true;
+        if (submitCaption) submitCaption.innerText = `Add ₹${remaining} More to Book (Min. ₹199)`;
+      }
+    }
+
+    // High Accuracy GPS Auto-Location & Leaflet Map
+    function fetchLiveGPSLocation() {
+      const gpsBtn = document.getElementById('btn-auto-gps');
+      const statusPanel = document.getElementById('gps-status-panel');
+      const headerLabel = document.getElementById('gps-header-label');
+      const captionText = document.getElementById('gps-coords-caption');
+      const gmapsDirect = document.getElementById('gmaps-direct-link');
+
+      if (!navigator.geolocation) {
+        triggerToastNotification("Geolocation is not supported by your browser.");
+        return;
+      }
+
+      gpsBtn.disabled = true;
+      gpsBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i><span>Detecting Live GPS...</span>';
+      statusPanel.classList.remove('hidden');
+      headerLabel.innerText = "Acquiring satellite lock...";
+      captionText.innerText = "Please allow location access if prompted...";
+
+      navigator.geolocation.getCurrentPosition(
+        async (position) => {
+          const lat = position.coords.latitude;
+          const lng = position.coords.longitude;
+          const accuracy = Math.round(position.coords.accuracy || 10);
+
+          detectedCoordinates = {
+            lat: lat.toFixed(6),
+            lng: lng.toFixed(6),
+            accuracy: accuracy
+          };
+
+          const mapUrl = `https://www.google.com/maps?q=${detectedCoordinates.lat},${detectedCoordinates.lng}`;
+          gmapsDirect.href = mapUrl;
+
+          headerLabel.innerHTML = `<span class="text-navy-900 font-bold">GPS Locked (±${accuracy}m accuracy)</span>`;
+          captionText.innerHTML = `Lat: <b>${detectedCoordinates.lat}</b>, Lng: <b>${detectedCoordinates.lng}</b>. Resolving street address...`;
+
+          gpsBtn.disabled = false;
+          gpsBtn.innerHTML = '<i class="fa-solid fa-arrows-rotate"></i><span>Recalibrate GPS</span>';
+
+          renderOrUpdateLeafletMap(lat, lng, accuracy);
+          await reverseGeocodeCoordinates(lat, lng);
+        },
+        (error) => {
+          gpsBtn.disabled = false;
+          gpsBtn.innerHTML = '<i class="fa-solid fa-crosshairs"></i><span>Retry Location</span>';
+          let message = "Unable to fetch live coordinates.";
+          if (error.code === error.PERMISSION_DENIED) {
+            message = "Location permission denied. Please enter address manually.";
+          }
+          headerLabel.innerText = "Location Notice";
+          captionText.innerText = message;
+          triggerToastNotification(message);
+        },
+        { enableHighAccuracy: true, timeout: 12000, maximumAge: 0 }
+      );
+    }
+
+    function renderOrUpdateLeafletMap(lat, lng, accuracy) {
+      const wrapper = document.getElementById('map-frame-wrapper');
+      wrapper.classList.remove('hidden');
+
+      if (!leafletMapInstance) {
+        leafletMapInstance = L.map('leaflet-doorstep-map').setView([lat, lng], 16);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 19,
+          attribution: '© OpenStreetMap contributors'
+        }).addTo(leafletMapInstance);
+
+        leafletDraggableMarker = L.marker([lat, lng], { draggable: true }).addTo(leafletMapInstance);
+        leafletAccuracyCircle = L.circle([lat, lng], { radius: accuracy, color: '#2563eb', fillOpacity: 0.12 }).addTo(leafletMapInstance);
+
+        leafletDraggableMarker.bindPopup("<b>LUMEN Doorstep Pickup Point</b><br>Drag pin to your exact building gate.").openPopup();
+
+        leafletDraggableMarker.on('dragend', async (e) => {
+          const pt = e.target.getLatLng();
+          repositionPinMarker(pt.lat, pt.lng);
+          await reverseGeocodeCoordinates(pt.lat, pt.lng);
+        });
+
+        leafletMapInstance.on('click', async (e) => {
+          leafletDraggableMarker.setLatLng(e.latlng);
+          repositionPinMarker(e.latlng.lat, e.latlng.lng);
+          await reverseGeocodeCoordinates(e.latlng.lat, e.latlng.lng);
+        });
+      } else {
+        leafletMapInstance.setView([lat, lng], 16);
+        leafletDraggableMarker.setLatLng([lat, lng]);
+        if (leafletAccuracyCircle) {
+          leafletAccuracyCircle.setLatLng([lat, lng]);
+          leafletAccuracyCircle.setRadius(accuracy);
+        }
+        leafletMapInstance.invalidateSize();
+      }
+    }
+
+    function repositionPinMarker(lat, lng) {
+      detectedCoordinates = {
+        lat: Number(lat).toFixed(6),
+        lng: Number(lng).toFixed(6),
+        accuracy: 'Adjusted'
+      };
+
+      const directLink = document.getElementById('gmaps-direct-link');
+      directLink.href = `https://www.google.com/maps?q=${detectedCoordinates.lat},${detectedCoordinates.lng}`;
+
+      const caption = document.getElementById('gps-coords-caption');
+      caption.innerHTML = `Pin adjusted: Lat: <b>${detectedCoordinates.lat}</b>, Lng: <b>${detectedCoordinates.lng}</b>`;
+    }
+
+    // Reverse Geocoding with OpenStreetMap Nominatim
+    async function reverseGeocodeCoordinates(lat, lng) {
+      const captionText = document.getElementById('gps-coords-caption');
+      try {
+        const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lng}&accept-language=en,ta`);
+        if (res.ok) {
+          const data = await res.json();
+          if (data && data.address) {
+            const addr = data.address;
+
+            const door = document.getElementById('cust-door');
+            const street = document.getElementById('cust-street');
+            const locality = document.getElementById('cust-locality');
+            const city = document.getElementById('cust-city');
+            const district = document.getElementById('cust-district');
+            const pincode = document.getElementById('cust-pincode');
+
+            if (addr.house_number && !door.value) door.value = addr.house_number;
+            if ((addr.road || addr.street) && !street.value) street.value = addr.road || addr.street;
+            if ((addr.suburb || addr.neighbourhood || addr.residential) && !locality.value) {
+              locality.value = addr.suburb || addr.neighbourhood || addr.residential;
+            }
+            if ((addr.city || addr.town || addr.village) && !city.value) {
+              city.value = addr.city || addr.town || addr.village;
+            }
+
+            if (addr.state_district || addr.county) {
+              const matched = (addr.state_district || addr.county).toLowerCase().replace(' district', '').trim();
+              for (let i = 0; i < district.options.length; i++) {
+                const val = district.options[i].value.toLowerCase();
+                if (val && (matched.includes(val) || val.includes(matched))) {
+                  district.selectedIndex = i;
+                  break;
+                }
+              }
+            }
+
+            if (addr.postcode && !pincode.value) pincode.value = addr.postcode;
+
+            if (data.display_name) {
+              captionText.innerHTML = `<span class="text-slate-800 font-semibold">${data.display_name.split(',').slice(0, 3).join(', ')}</span> <span class="text-emerald-600 font-bold">(Auto-filled)</span>`;
+            }
+            triggerToastNotification("Address fields auto-filled from live GPS!");
+          }
+        }
+      } catch (err) {
+        console.warn("Geocoding service unavailable", err);
+      }
+    }
+
+    // Photo Upload Handler
+    function handleGarmentPhotoUpload(e) {
+      const files = e.target.files;
+      if (!files) return;
+
+      const previewBox = document.getElementById('photos-preview-box');
+      previewBox.innerHTML = '';
+      uploadedGarmentPhotos = [];
+
+      const count = Math.min(files.length, 4);
+      for (let i = 0; i < count; i++) {
+        const file = files[i];
+        const reader = new FileReader();
+        reader.onload = (evt) => {
+          uploadedGarmentPhotos.push(file.name);
+          const el = document.createElement('div');
+          el.className = 'relative rounded-2xl overflow-hidden aspect-square border border-slate-200 bg-slate-100 shadow-sm';
+          el.innerHTML = `
+            <img src="${evt.target.result}" alt="Stain Photo" class="w-full h-full object-cover" />
+            <div class="absolute bottom-0 inset-x-0 bg-slate-900/80 text-[10px] text-white p-1 text-center truncate">${file.name}</div>
+          `;
+          previewBox.appendChild(el);
+        };
+        reader.readAsDataURL(file);
+      }
+
+      if (count > 0) {
+        previewBox.classList.remove('hidden');
+        triggerToastNotification(`${count} garment photo(s) attached.`);
+      }
+    }
+
+    // Web Audio Chime Sound FX
+    function playConfirmationChime() {
+      try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(523.25, ctx.currentTime); // C5
+        osc.frequency.setValueAtTime(659.25, ctx.currentTime + 0.1); // E5
+        osc.frequency.setValueAtTime(783.99, ctx.currentTime + 0.2); // G5
+        osc.frequency.setValueAtTime(1046.50, ctx.currentTime + 0.3); // C6
+        gain.gain.setValueAtTime(0.2, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.45);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + 0.45);
+      } catch (e) {
+        // Fallback
+      }
+    }
+
+    // Process Booking and Dispatch Order to WhatsApp (+91 9345989176)
+    function handleOrderSubmission(event) {
+      event.preventDefault();
+
+      let orderTotal = 0;
+      let orderPieces = 0;
+      let orderItems = [];
+
+      LUMEN_CATALOGUE.forEach(item => {
+        const qty = garmentQuantities[item.id] || 0;
+        if (qty > 0) {
+          const sub = qty * item.price;
+          orderTotal += sub;
+          orderPieces += qty;
+          orderItems.push({
+            nameEn: item.nameEn,
+            nameTa: item.nameTa,
+            qty: qty,
+            unit: item.unit,
+            price: item.price,
+            subtotal: sub
+          });
+        }
+      });
+
+      if (orderTotal < 199) {
+        triggerToastNotification("Minimum order value must be at least ₹199.");
+        return;
+      }
+
+      const name = document.getElementById('cust-name').value.trim();
+      const phone = document.getElementById('cust-whatsapp').value.trim();
+      const altPhone = document.getElementById('cust-altphone').value.trim();
+      const door = document.getElementById('cust-door').value.trim();
+      const street = document.getElementById('cust-street').value.trim();
+      const locality = document.getElementById('cust-locality').value.trim();
+      const city = document.getElementById('cust-city').value.trim();
+      const district = document.getElementById('cust-district').value;
+      const pincode = document.getElementById('cust-pincode').value.trim();
+      const landmark = document.getElementById('cust-landmark').value.trim();
+      const date = document.getElementById('pickup-date').value;
+      const slot = document.getElementById('pickup-timeslot').value;
+      const starch = document.querySelector('input[name="starch-pref"]:checked')?.value || 'Light Starch';
+      const packaging = document.querySelector('input[name="pack-style"]:checked')?.value || 'Luxury Hanger Packaging';
+      const speed = document.querySelector('input[name="turnaround-speed"]:checked')?.value || 'Standard (48 Hrs)';
+      const payment = document.querySelector('input[name="payment-method"]:checked')?.value || 'Cash on Delivery';
+      const aroma = document.getElementById('detergent-aroma').value;
+      const instructions = document.getElementById('special-instructions').value.trim();
+
+      const bookingDocketId = 'LMN-TN-' + Math.floor(100000 + Math.random() * 900000);
+
+      const fullAddress = [
+        door ? `Door/Flat ${door}` : '',
+        street,
+        locality,
+        city,
+        `${district} District`,
+        `Tamil Nadu - ${pincode}`,
+        landmark ? `(Landmark: ${landmark})` : ''
+      ].filter(Boolean).join(', ');
+
+      const bookingRecord = {
+        id: bookingDocketId,
+        dateCreated: new Date().toLocaleDateString('en-IN'),
+        name,
+        phone,
+        altPhone,
+        address: fullAddress,
+        pickupDate: date,
+        slot,
+        starch,
+        packaging,
+        speed,
+        payment,
+        orderTotal,
+        orderPieces,
+        items: orderItems,
+        instructions,
+        gps: detectedCoordinates,
+        photoCount: uploadedGarmentPhotos.length
+      };
+
+      // Store in LocalStorage
+      try {
+        let history = JSON.parse(localStorage.getItem('lumen_order_history') || '[]');
+        history.unshift(bookingRecord);
+        localStorage.setItem('lumen_order_history', JSON.stringify(history));
+      } catch (err) {
+        console.warn("Storage writing bypassed", err);
+      }
+
+      // Populate Modal Fields
+      document.getElementById('modal-docket-id').innerText = bookingDocketId;
+      document.getElementById('modal-docket-amount').innerText = `₹${orderTotal.toLocaleString('en-IN')}`;
+      document.getElementById('modal-docket-name').innerText = name;
+      document.getElementById('modal-docket-phone').innerText = phone + (altPhone ? ` / ${altPhone}` : '');
+      document.getElementById('modal-docket-slot').innerText = `${date} (${slot})`;
+      document.getElementById('modal-docket-starch').innerText = starch;
+      document.getElementById('modal-docket-pack').innerText = packaging;
+      document.getElementById('modal-docket-address').innerText = fullAddress;
+
+      const itemsList = document.getElementById('modal-docket-items');
+      itemsList.innerHTML = orderItems.map(it => `
+        <div class="flex justify-between items-center text-slate-700">
+          <span>• ${it.nameEn} (${it.nameTa}): <b>${it.qty}</b> @ ₹${it.price}</span>
+          <span class="font-bold text-slate-900">₹${it.subtotal.toLocaleString('en-IN')}</span>
+        </div>
+      `).join('');
+
+      // Build WhatsApp Dispatch Message for +91 9345989176
+      let msg = `🧺 *LUMEN FABRIC CARE - NEW DOORSTEP BOOKING*\n`;
+      msg += `━━━━━━━━━━━━━━━━━━━━━\n`;
+      msg += `🆔 *Booking ID:* *${bookingDocketId}*\n\n`;
+      msg += `👤 *CUSTOMER CONTACT DETAILS:*\n`;
+      msg += `• *Name:* *${name}*\n`;
+      msg += `• *WhatsApp Mobile:* *${phone}*\n`;
+      msg += `• *Direct Call:* tel:${phone}\n`;
+      if (altPhone) msg += `• *Alternate Phone:* *${altPhone}*\n`;
+
+      msg += `\n📍 *DOORSTEP PICKUP ADDRESS:*\n`;
+      if (door) msg += `• Door/Flat No: ${door}\n`;
+      if (street) msg += `• Street: ${street}\n`;
+      if (locality) msg += `• Locality: ${locality}\n`;
+      if (city) msg += `• Town / City: ${city}\n`;
+      msg += `• District: *${district}*, Tamil Nadu\n`;
+      if (landmark) msg += `• Landmark: ${landmark}\n`;
+      msg += `• Pincode: ${pincode}\n`;
+
+      if (detectedCoordinates) {
+        msg += `\n🌐 *Live Google Maps Location:*\nhttps://www.google.com/maps?q=${detectedCoordinates.lat},${detectedCoordinates.lng}\n`;
+      }
+
+      msg += `\n⏰ *PICKUP SCHEDULE & PREFERENCES:*\n`;
+      msg += `• Pickup Date: ${date}\n`;
+      msg += `• 2-Hour Slot: *${slot}*\n`;
+      msg += `• *Starch Level (கஞ்சி):* *${starch}*\n`;
+      msg += `• Packaging Style: *${packaging}*\n`;
+      msg += `• Aroma / Detergent: ${aroma}\n`;
+      msg += `• Turnaround Speed: *${speed}*\n`;
+      msg += `• Payment Mode: ${payment}\n`;
+
+      msg += `━━━━━━━━━━━━━━━━━━━━━\n`;
+      msg += `👕 *GARMENT BREAKDOWN (20 Items):*\n`;
+      orderItems.forEach(it => {
+        msg += `• ${it.nameEn} (${it.nameTa}): *${it.qty}* (= ₹${it.subtotal})\n`;
+      });
+      msg += `━━━━━━━━━━━━━━━━━━━━━\n`;
+      msg += `💰 *Total Estimated Bill:* *₹${orderTotal.toLocaleString('en-IN')}*\n`;
+      msg += `📦 *Total Pieces:* *${orderPieces} garments*\n`;
+      msg += `🚚 *Doorstep Valet:* *FREE (Min ₹199 Met)*\n`;
+
+      if (instructions) msg += `📝 *Care Instructions / Stains:* ${instructions}\n`;
+      if (uploadedGarmentPhotos.length > 0) msg += `📸 *Photos Attached:* ${uploadedGarmentPhotos.length} garment photo(s)\n`;
+
+      msg += `\n_LUMEN Fabric Care & Couture Laundry • Concierge: +91 93459 89176_`;
+
+      const targetNumber = "919345989176";
+      const waUrl = `https://wa.me/${targetNumber}?text=${encodeURIComponent(msg)}`;
+      document.getElementById('btn-relaunch-wa').href = waUrl;
+
+      playConfirmationChime();
+      triggerToastNotification("Booking docket generated! Opening WhatsApp...");
+
+      document.getElementById('booking-receipt-modal').classList.remove('hidden');
+
+      // Automatic WhatsApp Open
+      try {
+        const opened = window.open(waUrl, '_blank');
+        if (!opened || opened.closed || typeof opened.closed === 'undefined') {
+          setTimeout(() => {
+            window.location.href = waUrl;
+          }, 800);
+        }
+      } catch (err) {
+        console.warn("Direct pop-up blocked, button ready on docket", err);
+      }
+    }
+
+    // Modal Control
+    function closeGenericModal(modalId) {
+      document.getElementById(modalId).classList.add('hidden');
+    }
+
+    // Past Orders Modal
+    function openMyOrdersModal() {
+      const container = document.getElementById('past-orders-list-box');
+      let history = [];
+      try {
+        history = JSON.parse(localStorage.getItem('lumen_order_history') || '[]');
+      } catch (e) {
+        history = [];
+      }
+
+      if (history.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-10">
+            <div class="w-12 h-12 mx-auto rounded-full bg-slate-100 flex items-center justify-center text-slate-400 text-xl mb-2">
+              <i class="fa-solid fa-clock-rotate-left"></i>
+            </div>
+            <p class="text-slate-800 font-bold text-sm">No Past Orders Found</p>
+            <p class="text-slate-400 text-xs mt-0.5">Your submitted doorstep pickup dockets will appear here.</p>
+          </div>
+        `;
+      } else {
+        container.innerHTML = history.map(h => `
+          <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50 space-y-2">
+            <div class="flex justify-between items-start">
+              <div>
+                <span class="text-xs font-black text-navy-900">${h.id}</span>
+                <p class="text-[11px] text-slate-500">${h.pickupDate} • ${h.slot}</p>
+                <span class="text-[10px] bg-amber-100 text-amber-900 px-2 py-0.5 rounded font-bold border border-amber-200">${h.starch}</span>
+              </div>
+              <span class="text-xs font-black text-royal-700 bg-white px-2.5 py-1 rounded-lg border border-slate-200 shadow-sm">
+                ₹${h.orderTotal.toLocaleString('en-IN')}
+              </span>
+            </div>
+            <p class="text-[11px] text-slate-700"><i class="fa-solid fa-location-dot text-slate-400 mr-1"></i> ${h.address}</p>
+            <div class="text-[10px] text-slate-500 flex flex-wrap gap-1.5 pt-1.5 border-t border-slate-200">
+              ${h.items.map(it => `<span class="bg-white px-2 py-0.5 rounded-md border border-slate-200 font-medium">${it.nameEn}: ${it.qty}</span>`).join('')}
+            </div>
+          </div>
+        `).join('');
+      }
+
+      document.getElementById('my-orders-history-modal').classList.remove('hidden');
+    }
+
+    // Live Docket Tracker Lookup
+    function executeDocketLookup() {
+      const input = document.getElementById('track-input-id').value.trim();
+      const resultCard = document.getElementById('tracker-result-card');
+      const docketTag = document.getElementById('track-result-docket');
+
+      if (!input) {
+        triggerToastNotification("Please enter a Booking ID or 10-digit mobile number.");
+        return;
+      }
+
+      docketTag.innerText = input.toUpperCase().startsWith('LMN') ? input.toUpperCase() : `LMN-TN-${Math.floor(100000 + Math.random() * 900000)}`;
+      resultCard.classList.remove('hidden');
+      triggerToastNotification("Docket found! Status: In German Vacuum Steam Pressing.");
+    }
+
+    // FAQ Accordion
+    function toggleFaqAccordion(id) {
+      const panel = document.getElementById(id);
+      const num = id.replace('faq-item-', '');
+      const icon = document.getElementById(`faq-icon-${num}`);
+      if (panel.classList.contains('hidden')) {
+        panel.classList.remove('hidden');
+        if (icon) icon.classList.add('rotate-180');
+      } else {
+        panel.classList.add('hidden');
+        if (icon) icon.classList.remove('rotate-180');
+      }
+    }
+
+    // Toast Notifications
+    function triggerToastNotification(text) {
+      const wrapper = document.getElementById('toast-wrapper');
+      const toast = document.createElement('div');
+      toast.className = 'bg-navy-950 text-white text-xs px-4 py-3 rounded-2xl shadow-luxury border border-slate-800 flex items-center gap-2 pointer-events-auto transition-all transform translate-y-2';
+      toast.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-400"></i> <span>${text}</span>`;
+      wrapper.appendChild(toast);
+      setTimeout(() => {
+        toast.remove();
+      }, 3500);
+    }
+
+    // Startup
+    window.addEventListener('DOMContentLoaded', () => {
+      initLumenApplication();
+    });
+  </script>
+</body>
+</html>
